@@ -4,7 +4,7 @@ Btn_Submit = document.getElementById("submit-button")
 Input_Question = document.getElementsByClassName("question-input")[0]
 Number_Question = document.getElementsByClassName("label")[0]
 
-// Adding Event listener (Add Question, Submit)
+//Adding Event listener (Add Question, Submit)
 Btn_Add_Question.addEventListener("click",AddQuestion)
 Btn_Submit.addEventListener("click",Submit)
 
