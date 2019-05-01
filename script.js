@@ -21,6 +21,6 @@ function AddQuestion() {
 }
 
 function Submit() {
-    alert("Survey Heading : \n create link")
+    alert("Survey Heading  : \n create link")
 }
 
