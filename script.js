@@ -9,7 +9,7 @@ Btn_Add_Question.addEventListener("click",AddQuestion)
 Btn_Submit.addEventListener("click",Submit)
 
 // Variables
-Questions = []
+Questions = [ ]
 
 // Functions for buttons
 function AddQuestion() {
