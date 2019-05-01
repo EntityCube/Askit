@@ -21,6 +21,6 @@ function AddQuestion() {
 }
 
 function Submit() {
-    alert("Survey Name  : \n create link")
+    alert("Survey Name: \n create link")
 }
 
