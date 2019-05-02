@@ -56,7 +56,7 @@ button:active {
 /*-----Top Area Style-----*/
 
 .top_container {
-	background: linear-gradient(35deg, #d10053, #ff0066);
+	background: linear-gradient(35deg, #010053, #0f0066);
 }
 
 .logo {
@@ -89,7 +89,7 @@ button:active {
 	color: #ffffff;
 }
 
-form {
+form , #template {
 	padding: 0px 5% 50px 5%;
 }
 
@@ -107,11 +107,13 @@ input {
 	display: block;
 }
 
-form .answer_survey{
+form .answer_survey {
 	display: flex;
 }
 
-.link_box, .question-input {
+.link_box,
+.question-input,
+.answer-input {
 	flex: auto;
 	border: none;
 
@@ -136,6 +138,7 @@ form .answer_survey{
 /*-----footer style-----*/
 
 .footer {
+
 	background-color: #000000;
 	display: flex;
 	align-items: center;
@@ -196,7 +199,8 @@ form .answer_survey{
 	width: 90%;
 }
 
-.label {
+.label,
+.survey-question-label {
 	color: #ffffff;
 	text-align: center;
 	width: 100%;
@@ -204,7 +208,8 @@ form .answer_survey{
 	margin-bottom: 10px;
 }
 
-.question-input {
+.question-input,
+.answer-input {
 	width: 100%;
 }
 
@@ -214,18 +219,20 @@ form .answer_survey{
 	width: 100%;
 }
 
+
 .button-container button {
 	margin: 20px 0px 50px 0px;
 	width: 45%;
-	
+
 }
 
-#submit-box {
+#submit-box,
+#answer-box {
 	display: none;
 	text-align: center;
-	background:rgba(15, 15, 15, 0.95);
+	background: rgba(15, 15, 15, 0.95);
 	border-radius: 3px;
-	padding:100vh;
+	padding: 100vh;
 	position: fixed;
 	top: 50%;
 	left: 50%;

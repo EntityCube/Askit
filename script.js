@@ -1,4 +1,4 @@
-// Linking Buttons (Add Question, Submit), input , Question number , submit box (hidden), survey submit button , survey topic input
+// Linking Buttons (Add Question, Submit), input , Question number , submit box (hidden), survey submit button , survey topic input, survey.html next button, survey answer input
 Btn_Add_Question = document.getElementsByClassName("add-question-button")[0]
 Btn_Submit = document.getElementById("submit-button")
 Input_Question = document.getElementsByClassName("question-input")[0]
@@ -8,10 +8,13 @@ Btn_Create_Survey = document.getElementById("create-survey-button")
 Input_Survey_Topic = document.getElementById("survey-topic-input")
 
 
+
+
+
 //Adding Event listener (Add Question, Submit, Create Survey)
-Btn_Add_Question.addEventListener("click", AddQuestion)
 Btn_Submit.addEventListener("click", Submit)
 Btn_Create_Survey.addEventListener("click", CreateSurvey)
+Btn_Add_Question.addEventListener("click", AddQuestion)
 
 // Variables
 Questions = []
@@ -20,7 +23,11 @@ Questions = []
 function AddQuestion() {
     if (Input_Question.value == false) {
         alert("there nothing written here")
-    } else {
+    } else if (Input_Question.value.length > 101) {
+        alert("exceeded character limit of question")
+    }
+    
+    else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
         console.log(Questions)
