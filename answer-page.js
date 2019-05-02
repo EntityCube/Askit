@@ -44,5 +44,6 @@ function LoadNextQuestion() {
 }
 
 function SubmitAnswers() {
+    // Need to upload answers to database
     alert("its working")
 }

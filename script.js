@@ -48,6 +48,7 @@ function CreateSurvey() {
     if (Input_Survey_Topic.value == false) {
         alert("please add a topic")
     } else {
+        // upload all questions to db with topic as reference
         Box_Submit.style.display = "none"
     }
 }
