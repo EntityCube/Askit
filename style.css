@@ -10,7 +10,7 @@
 }
 
 h2 {
-	color: #d10053;
+	color: #1f1f25;
 	font-size: 2em;
 	text-align: center;
 	padding: 20px 0px 10px 0px;
@@ -37,7 +37,7 @@ a:active {
 
 button {
 	background-color: #ffffff;
-	color: #ef005f;
+	color: #3f3f3f;
 	border: none;
 	padding: 10px 25px;
 	font-weight: 600;
@@ -56,7 +56,7 @@ button:active {
 /*-----Top Area Style-----*/
 
 .top_container {
-	background: linear-gradient(35deg, #010053, #0f0066);
+	background: linear-gradient(35deg, #05a2a7, #e0390f);
 }
 
 .logo {
