@@ -107,7 +107,7 @@ input {
 	display: block;
 }
 
-form .answer_survey {
+form ,.answer_survey {
 	display: flex;
 }
 
