@@ -56,7 +56,7 @@ button:active {
 /*-----Top Area Style-----*/
 
 .top_container {
-	background: linear-gradient(35deg, #05a2a7, #e0390f);
+	background: linear-gradient(35deg, #f50669, #e0390f);
 }
 
 .logo {
@@ -89,7 +89,8 @@ button:active {
 	color: #ffffff;
 }
 
-form , #template {
+form,
+#template {
 	padding: 0px 5% 50px 5%;
 }
 
@@ -107,7 +108,8 @@ input {
 	display: block;
 }
 
-form ,.answer_survey {
+form,
+.answer_survey {
 	display: flex;
 }
 
