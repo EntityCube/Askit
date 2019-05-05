@@ -6,6 +6,9 @@ Number_Question = document.getElementsByClassName("label")[0]
 Box_Submit = document.getElementById("submit-box")
 Btn_Create_Survey = document.getElementById("create-survey-button")
 Input_Survey_Topic = document.getElementById("survey-topic-input")
+Label_Heading = document.getElementById("heading")
+
+
 
 
 
@@ -17,7 +20,7 @@ Btn_Create_Survey.addEventListener("click", CreateSurvey)
 Btn_Add_Question.addEventListener("click", AddQuestion)
 
 // Variables
-
+Questions = []
 
 // Functions for buttons
 function AddQuestion() {
@@ -25,9 +28,7 @@ function AddQuestion() {
         alert("there nothing written here")
     } else if (Input_Question.value.length > 101) {
         alert("exceeded character limit of question")
-    }
-    
-    else {
+    } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
         console.log(Questions)
@@ -49,6 +50,26 @@ function CreateSurvey() {
         alert("please add a topic")
     } else {
         // upload all questions to db with topic as reference
-        Box_Submit.style.display = "none"
+        storeQuestions(Questions)
+
     }
+}
+
+function showKey(code) {
+    Box_Submit.style.display = "none"
+    console.log(code)
+    hideAll()
+    Number_Question.innerHTML = "share this url"
+    survey_url = "https://askit.netlify/survey.html#" + code
+    Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>" 
+}
+
+function hideAll() {
+    Btn_Add_Question.style.display = "none"
+    Btn_Submit.style.display = "none"
+    Input_Question.style.display = "none"
+    //Number_Question.style.display = "none"
+    Box_Submit.style.display = "none"
+    Btn_Create_Survey.style.display = "none"
+    Input_Survey_Topic.style.display = "none"
 }

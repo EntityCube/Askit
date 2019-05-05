@@ -1,5 +1,8 @@
-Btn_Next = document.getElementById("next-button")
-Label_Question = document.getElementsByClassName("survey-question-label")[0]
+dbDataLocation = "demo"
+
+dbDataLocation = window.location.hash.substring(1)
+console.log(" DB LOCATION : " + dbDataLocation)
+
 data = []
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -19,7 +22,7 @@ const dbRefObject = firebase.database().ref().child('object');
 
 
 
-const dataRef = firebase.database().ref().child('questions');
+const dataRef = firebase.database().ref().child(dbDataLocation);
 dataRef.on('value', snap => data = snap.val())
 dataRef.on('value', function () {
   Label_Question.innerHTML = data[0]
