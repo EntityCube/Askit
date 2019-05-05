@@ -1,5 +1,3 @@
-// test database result variable
-data = ["what is my age?", "do i like cats or dogs more?", "which is my favourite car?"]
 
 answers = []
 
@@ -15,9 +13,8 @@ Btn_Submit = document.getElementById("answer-submit-button")
 Btn_Next.addEventListener("click", LoadNextQuestion)
 Btn_Submit.addEventListener("click", SubmitAnswers)
 
-//loading first value to question
-Label_Question.innerHTML = data[0]
-
+// dispable next button until data loads
+Btn_Next.disabled = true;
 
 function LoadNextQuestion() {
     if (data.length != answers.length) {

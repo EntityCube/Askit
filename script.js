@@ -17,7 +17,7 @@ Btn_Create_Survey.addEventListener("click", CreateSurvey)
 Btn_Add_Question.addEventListener("click", AddQuestion)
 
 // Variables
-Questions = []
+
 
 // Functions for buttons
 function AddQuestion() {
