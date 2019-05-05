@@ -28,7 +28,6 @@ function LoadNextQuestion() {
             console.log(answers.length)
             Label_Question_num.innerHTML = "Question " + (answers.length + 1)
             Label_Question.innerHTML = data[answers.length]
-
             if (data.length == answers.length) {
                 console.log("completed")
                 Box_Answer.style.display = "block"

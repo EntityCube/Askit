@@ -19,7 +19,9 @@ const dbRefQuestions = firebase.database().ref();
 
 
 function storeQuestions(storedata) {
-    post = dbRefQuestions.push(storedata)
+    //post = dbRefQuestions.push(storedata)
+    post = dbRefQuestions.push()
+    firebase.database().ref().child(post.key).child("questions").set(storedata)
     firebase.database().ref().child(post.key).child("author").set(Input_Survey_Topic.value)
     console.log(post.key)
 

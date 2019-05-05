@@ -22,7 +22,7 @@ const dbRefObject = firebase.database().ref().child('object');
 
 
 
-const dataRef = firebase.database().ref().child(dbDataLocation);
+const dataRef = firebase.database().ref().child(dbDataLocation).child('questions');
 dataRef.on('value', snap => data = snap.val())
 dataRef.on('value', function () {
   Label_Question.innerHTML = data[0]
