@@ -60,7 +60,7 @@ function showKey(code) {
     console.log(code)
     hideAll()
     Number_Question.innerHTML = "share this url"
-    survey_url = "https://askit.netlify/survey.html#" + code
+    survey_url = "https://askit.netlify.com/survey.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>" 
 }
 
