@@ -35,4 +35,5 @@ creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML
 function SendAnswersToDB(username, result) {
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).set(username)
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
+
 }
