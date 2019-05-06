@@ -30,4 +30,4 @@ dataRef.on('value', function () {
 })
 
 const creatorRef = firebase.database().ref().child(dbDataLocation).child('creator');
-dataRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val())
+creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val())
