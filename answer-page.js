@@ -7,6 +7,7 @@ Label_Question_num = document.getElementById("survey-question-number")
 Input_Answer = document.getElementsByClassName("answer-input")[0]
 Box_Answer = document.getElementById("answer-box")
 Btn_Submit = document.getElementById("answer-submit-button")
+Input_Attended_User_Name = document.getElementById("answering-user-name-input")
 
 // Adding Event listeners
 Btn_Next.addEventListener("click", LoadNextQuestion)
@@ -22,16 +23,13 @@ function LoadNextQuestion() {
         } else if (Input_Answer.value.length > 101) {
             alert("character limit exceeded")
         } else {
-            console.log(Input_Answer.value)
-            answers.push(Input_Answer)
+            answers.push(Input_Answer.value)
+
             Input_Answer.value = ""
-            console.log(answers.length)
             Label_Question_num.innerHTML = "Question " + (answers.length + 1)
             Label_Question.innerHTML = data[answers.length]
             if (data.length == answers.length) {
-                console.log("completed")
                 Box_Answer.style.display = "block"
-
             }
 
         }
@@ -40,5 +38,5 @@ function LoadNextQuestion() {
 
 function SubmitAnswers() {
     // Need to upload answers to database
-    alert("its working")
+    SendAnswersToDB(Input_Attended_User_Name.value, answers)
 }

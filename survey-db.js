@@ -1,7 +1,6 @@
 dbDataLocation = "demo"
 
 dbDataLocation = window.location.hash.substring(1)
-console.log(" DB LOCATION : " + dbDataLocation)
 
 data = []
 // Your web app's Firebase configuration
@@ -31,3 +30,9 @@ dataRef.on('value', function () {
 
 const creatorRef = firebase.database().ref().child(dbDataLocation).child('creator');
 creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val())
+
+
+function SendAnswersToDB(username, result) {
+  firebase.database().ref().child(dbDataLocation).child("Results").child(username).set(username)
+  firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
+}
