@@ -1,6 +1,3 @@
-Btn_loadSurveyPage = document.getElementsByClassName("survey_submit_button")[0]
-Btn_loadSurveyPage.addEventListener("click", loadSurveyPage)
-
 Input_surveyCode = document.getElementsByClassName("link_box")[0]
 
 function loadSurveyPage() {

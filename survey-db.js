@@ -44,7 +44,6 @@ function hideAll() {
 
   Btn_Next.style.display = "none"
   Label_Question.style.display = "none"
-  //Label_Question_num.style.display = "none"
   Input_Answer.style.display = "none"
   Box_Answer.style.display = "none"
   Btn_Submit.style.display = "none"
