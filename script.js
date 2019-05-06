@@ -31,8 +31,6 @@ function AddQuestion() {
     } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
-        console.log(Questions)
-        console.log(Questions.length)
         Number_Question.innerHTML = "Question " + (Questions.length + 1)
     }
 }
@@ -57,7 +55,6 @@ function CreateSurvey() {
 
 function showKey(code) {
     Box_Submit.style.display = "none"
-    console.log(code)
     hideAll()
     Number_Question.innerHTML = "share this url"
     survey_url = "https://askit.netlify.com/survey.html#" + code

@@ -23,7 +23,6 @@ function storeQuestions(storedata) {
     post = dbRefQuestions.push()
     firebase.database().ref().child(post.key).child("questions").set(storedata)
     firebase.database().ref().child(post.key).child("creator").set(Input_Survey_Topic.value)
-    console.log(post.key)
 
     showKey(post.key)
 }
