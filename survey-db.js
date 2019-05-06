@@ -35,5 +35,18 @@ creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML
 function SendAnswersToDB(username, result) {
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).set(username)
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
-  window.location.href = "/"
+  hideAll()
+  Label_Question_num.innerHTML = "Submitted"
+  setTimeout(function() {window.location.href = "/"},300)
+}
+
+function hideAll() {
+
+  Btn_Next.style.display = "none"
+  Label_Question.style.display = "none"
+  //Label_Question_num.style.display = "none"
+  Input_Answer.style.display = "none"
+  Box_Answer.style.display = "none"
+  Btn_Submit.style.display = "none"
+  Input_Attended_User_Name.style.display = "none"
 }
