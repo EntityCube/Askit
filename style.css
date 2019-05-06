@@ -240,3 +240,14 @@ form,
 	left: 50%;
 	transform: translate(-50%, -50%)
 }
+
+#creator_name {
+	color:white;
+	position:fixed;
+	right:1vw;
+	top: 13vh;
+}
+
+* {
+	border: 1px solid #000000;
+}
