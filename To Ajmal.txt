@@ -1,7 +1,0 @@
-1. i have added a place for survey creator name in survey.html
-
->> beatify it XD ( css: #creator-name )
-
-2. add animation and beautify for submit window (where user is asked to enter name when they completed answer(survey.html) and where the user is asked to type his name when he complete creating a survey(create-survey.html))
-
-3. Beautify all
