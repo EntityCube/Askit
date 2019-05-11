@@ -4,6 +4,7 @@ Btn_Submit = document.getElementById("submit-button")
 Input_Question = document.getElementsByClassName("question-input")[0]
 Number_Question = document.getElementsByClassName("label")[0]
 Box_Submit = document.getElementById("submit-box")
+Box_Submit_Container = document.getElementById("pop-up-container")
 Btn_Create_Survey = document.getElementById("create-survey-button")
 Input_Survey_Topic = document.getElementById("survey-topic-input")
 Label_Heading = document.getElementById("heading")
@@ -27,7 +28,7 @@ function AddQuestion() {
     if (Input_Question.value == false) {
         alert("there nothing written here")
     } else if (Input_Question.value.length > 101) {
-        alert("exceeded character limit of question")
+        alert("exceeded character limit of question (max: 100)")
     } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
@@ -40,12 +41,13 @@ function Submit() {
         alert("please add a question for your survey")
     } else {
         Box_Submit.style.display = "block"
+		Box_Submit_Container.style.display = "block"
     }
 }
 
 function CreateSurvey() {
     if (Input_Survey_Topic.value == false) {
-        alert("please add a topic")
+        alert("please add your name")
     } else {
         // upload all questions to db with topic as reference
         storeQuestions(Questions)
@@ -55,8 +57,9 @@ function CreateSurvey() {
 
 function showKey(code) {
     Box_Submit.style.display = "none"
+	Box_Submit_Container.style.display = "none"
     hideAll()
-    Number_Question.innerHTML = "share this url"
+    Number_Question.innerHTML = "share this url to your friends"
     survey_url = "https://askit.netlify.com/survey.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>" 
 }
@@ -64,6 +67,7 @@ function showKey(code) {
 function hideAll() {
     Btn_Add_Question.style.display = "none"
     Btn_Submit.style.display = "none"
+	Box_Submit_Container.style.display = "none"
     Input_Question.style.display = "none"
     //Number_Question.style.display = "none"
     Box_Submit.style.display = "none"
