@@ -1,2 +1,0 @@
-optimised for mobile only for now
-you figure hoow to make add question button work and other back end stuff
