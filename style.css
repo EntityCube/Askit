@@ -11,6 +11,7 @@
 
 *:focus {
 	outline: none;
+	border: none;
 }
 
 html {
@@ -37,7 +38,7 @@ h2 {
 p {
 	color: #555555;
 	margin: 0px 5% 5vw 5%;
-	text-align: c;
+	text-align: left;
 	line-height: 1.5;
 }
 
