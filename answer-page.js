@@ -5,7 +5,7 @@ Btn_Next = document.getElementById("next-button")
 Label_Question = document.getElementsByClassName("survey-question-label")[0]
 Label_Question_num = document.getElementById("survey-question-number")
 Input_Answer = document.getElementsByClassName("answer-input")[0]
-Box_Answer = document.getElementById("answer-box")
+Box_Answer = document.getElementById("pop-up-container")
 Btn_Submit = document.getElementById("answer-submit-button")
 Input_Attended_User_Name = document.getElementById("answering-user-name-input")
 
