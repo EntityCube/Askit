@@ -4,6 +4,12 @@ NameMension = document.getElementById("NameMention")
 
 Questions = ["fav color?", "fav car?", "fav city?"]
 
+
+
+
+answerData = []
+CurrentAnswerBlock = ""
+
 //Range function to stack in order
 
 const range = (start, end) => {
@@ -14,10 +20,26 @@ const range = (start, end) => {
 }
 
 
+// Stack Question and Answers
 
 function StackOne(i) {
-    QStack.innerHTML = QStack.innerHTML + " <p class='question'>" + i + ". " + Questions[i - 1] + "</p> <p class='answer'>Answer of Question x </p> "
+    Qstart = "<p class='question'>"
+    Astart = "<p class='answer'>"
+    Pclose = " </p> "
+    Panswer = answerData[0][i - 1]
+    NumberOfAnswers = answerData.length
+    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
+    PAnswer = Astart + Panswer + Pclose
+    for (k of range(0, NumberOfAnswers)) {
+        PAnswer = Astart + answerData[k][i - 1] + Pclose
+        CurrentAnswerBlock = CurrentAnswerBlock + PAnswer
+    }
+    QStack.innerHTML = PQuestion + CurrentAnswerBlock
+    CurrentAnswerBlock = ""
 }
+
+
+
 
 dbDataLocation = "demo"
 
@@ -49,23 +71,33 @@ AttendedUsersRef.on('value', function () {
 // Get Survey Questions
 const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('questions');
 QuestionsRef.on('value', snap => Questions = snap.val())
+"</p> <p class='answer'>"
 QuestionsRef.on('value', function () {
     StartStacking()
 })
 
 
-
+// Call to Stack by Questions length
 function StartStacking() {
     for (i of range(1, Questions.length + 1)) {
         StackOne(i)
     }
 }
 
+// Get All Users who attended the survey
 function MensionNames() {
 
+    j = 0
+
     for (property in AttendedUsers) {
-        console.log(property.property)
+        console.log(property)
         NameMension.innerText = NameMension.innerText + " " + property + " ,"
+        const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
+        AnswersRef.on('value', snap => answerData[j] = snap.val())
+        j++;
     }
     NameMension.innerText = NameMension.innerText.slice(0, -2)
+    for (var s = 0; s < answerData.length; s++) {
+        console.log(answerData[s])
+    }
 }
