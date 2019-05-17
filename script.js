@@ -8,6 +8,7 @@ Box_Submit_Container = document.getElementById("pop-up-container")
 Btn_Create_Survey = document.getElementById("create-survey-button")
 Input_Survey_Topic = document.getElementById("survey-topic-input")
 Label_Heading = document.getElementById("heading")
+Btn_Show_Results = document.getElementById("ShowResultsBtn")
 
 
 
@@ -41,7 +42,7 @@ function Submit() {
         alert("please add a question for your survey")
     } else {
         Box_Submit.style.display = "block"
-		Box_Submit_Container.style.display = "block"
+        Box_Submit_Container.style.display = "block"
     }
 }
 
@@ -57,17 +58,19 @@ function CreateSurvey() {
 
 function showKey(code) {
     Box_Submit.style.display = "none"
-	Box_Submit_Container.style.display = "none"
+    Box_Submit_Container.style.display = "none"
     hideAll()
     Number_Question.innerHTML = "share this url to your friends"
     survey_url = "https://askit.netlify.com/survey.html#" + code
-    Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>" 
+    results_url = "https://askit.netlify.com/results.html#" + code
+    Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>"
+    Btn_Show_Results.innerHTML = "<a href=" + results_url + ">" + < button > Show Results < /button> +"</a > "
 }
 
 function hideAll() {
     Btn_Add_Question.style.display = "none"
     Btn_Submit.style.display = "none"
-	Box_Submit_Container.style.display = "none"
+    Box_Submit_Container.style.display = "none"
     Input_Question.style.display = "none"
     //Number_Question.style.display = "none"
     Box_Submit.style.display = "none"
