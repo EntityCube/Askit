@@ -37,7 +37,9 @@ function SendAnswersToDB(username, result) {
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
   hideAll()
   Label_Question_num.innerHTML = "Submitted"
-  setTimeout(function() {window.location.href = "/"},300)
+  setTimeout(function () {
+    window.location.href = "/"
+  }, 300)
 }
 
 function hideAll() {

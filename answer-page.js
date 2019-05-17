@@ -42,8 +42,7 @@ function SubmitAnswers() {
     // Need to upload answers to database
     if (Input_Attended_User_Name.value != false) {
         SendAnswersToDB(Input_Attended_User_Name.value, answers)
-    }
-    else {
+    } else {
         alert("type your name")
     }
 }

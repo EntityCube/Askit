@@ -49,7 +49,7 @@ a {
 }
 
 a:hover {
-	background: linear-gradient(35deg, #f50669, #e0390f); 
+	background: linear-gradient(35deg, #f50669, #e0390f);
 }
 
 a:active {
@@ -173,7 +173,7 @@ button:active {
 	padding-top: 5vh;
 	padding-bottom: 10vh;
 }
-	
+
 .survey_text {
 	text-align: center;
 	color: #ffffff;
@@ -234,7 +234,8 @@ form,
 	width: 90%;
 }
 
-.label, .survey-question-label {
+.label,
+.survey-question-label {
 	color: #ffffff;
 	text-align: center;
 	width: 100%;
@@ -310,7 +311,7 @@ form,
 	margin: 0px auto 30px auto;
 }
 
-#heading a{
+#heading a {
 	color: #ffffff;
 	font-size: .8em;
 }
@@ -326,7 +327,8 @@ form,
 	padding: 20px 5%;
 }
 
-.question, .answer {
+.question,
+.answer {
 	color: #ffffff;
 	text-align: left;
 	margin: 0;
