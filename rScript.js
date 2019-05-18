@@ -63,7 +63,13 @@ firebase.initializeApp(firebaseConfig);
 const AttendedUsersRef = firebase.database().ref().child(dbDataLocation).child('Results');
 AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
 AttendedUsersRef.on('value', function () {
-    MensionNames()
+    if (AttendedUsers !== null) {
+        NameMension.innerText = "Answers of"
+        MensionNames()
+    } else {
+        NameMension.innerText = "No Results"
+    }
+
 })
 
 
@@ -73,7 +79,9 @@ const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('ques
 QuestionsRef.on('value', snap => Questions = snap.val())
 "</p> <p class='answer'>"
 QuestionsRef.on('value', function () {
-    StartStacking()
+    if (Questions !== null) {
+        StartStacking()
+    }
 })
 
 
@@ -89,10 +97,10 @@ function MensionNames() {
 
     j = 0
 
-    NameMension.innerText = "Answers of "
+
 
     for (property in AttendedUsers) {
-        console.log(property)
+
         NameMension.innerText = NameMension.innerText + " " + property + " ,"
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
@@ -100,6 +108,6 @@ function MensionNames() {
     }
     NameMension.innerText = NameMension.innerText.slice(0, -2)
     for (var s = 0; s < answerData.length; s++) {
-        console.log(answerData[s])
+
     }
 }
