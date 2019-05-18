@@ -78,7 +78,12 @@ AttendedUsersRef.on('value', function () {
 
 })
 
-
+// Randomiser
+function getRandomInteger(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
 // Get Survey Questions
 const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('questions');
@@ -107,10 +112,10 @@ function MensionNames() {
 
     for (property in AttendedUsers) {
 
-        red = Math.floor(Math.random() * 100) + 0;
-        green = Math.floor(Math.random() * 200) + 100;
-        blue = Math.floor(Math.random() * 255) + 200;
-        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.3)"
+        red = getRandomInteger(200, 255)
+        green = getRandomInteger(200, 255)
+        blue = getRandomInteger(200, 255)
+        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.1)"
         console.log(bgColor)
 
         AbgColor[j] = bgColor
