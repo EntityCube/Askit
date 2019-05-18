@@ -338,3 +338,8 @@ form,
 .answer {
 	font-weight: 700;
 }
+
+#CopyBtn {
+	display: none;
+	margin-bottom: 15px;
+}

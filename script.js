@@ -9,6 +9,7 @@ Btn_Create_Survey = document.getElementById("create-survey-button")
 Input_Survey_Topic = document.getElementById("survey-topic-input")
 Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
+Btn_Copy_Link = document.getElementById("CopyBtn")
 
 
 
@@ -20,9 +21,11 @@ Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Submit.addEventListener("click", Submit)
 Btn_Create_Survey.addEventListener("click", CreateSurvey)
 Btn_Add_Question.addEventListener("click", AddQuestion)
+Btn_Copy_Link.addEventListener("click", CopyToClipboard)
 
 // Variables
 Questions = []
+
 
 // Functions for buttons
 function AddQuestion() {
@@ -56,10 +59,26 @@ function CreateSurvey() {
     }
 }
 
+function CopyToClipboard() {
+
+    document.getElementById("surveyurl").value = survey_url
+    /* Get the text field */
+    var copyText = document.getElementById("surveyurl");
+
+    /* Select the text field */
+    copyText.select();
+
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+
+}
+
 function showKey(code) {
     Box_Submit.style.display = "none"
     Box_Submit_Container.style.display = "none"
     hideAll()
+    Btn_Copy_Link.style.display = "inline-block"
+
     Number_Question.innerHTML = "share this url to your friends"
     survey_url = "https://askit.netlify.com/survey.html#" + code
     results_url = "https://askit.netlify.com/results.html#" + code
