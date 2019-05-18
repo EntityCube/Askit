@@ -9,6 +9,8 @@ Questions = ["fav color?", "fav car?", "fav city?"]
 
 answerData = []
 CurrentAnswerBlock = ""
+bgColor = " "
+AbgColor = []
 
 //Range function to stack in order
 
@@ -24,16 +26,20 @@ const range = (start, end) => {
 
 function StackOne(i) {
     Qstart = "<p class='question'>"
-    Astart = "<p class='answer'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+    Astart = "<p class='answer' " + "style='background:" + "red" + "'" + ">"
     Pclose = " </p> "
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
+
     for (k of range(0, NumberOfAnswers)) {
+        Astart = "<p class='answer' " + "style='background:" + AbgColor[k] + "'" + ">"
+
         PAnswer = Astart + answerData[k][i - 1] + Pclose
         CurrentAnswerBlock = CurrentAnswerBlock + PAnswer
     }
+
     QStack.innerHTML = PQuestion + CurrentAnswerBlock
     CurrentAnswerBlock = ""
 }
@@ -101,12 +107,20 @@ function MensionNames() {
 
     for (property in AttendedUsers) {
 
-        NameMension.innerText = NameMension.innerText + " " + property + " ,"
+        red = Math.floor(Math.random() * 100) + 0;
+        green = Math.floor(Math.random() * 200) + 100;
+        blue = Math.floor(Math.random() * 255) + 200;
+        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.3)"
+        console.log(bgColor)
+
+        AbgColor[j] = bgColor
+
+        NameMension.innerHTML = NameMension.innerHTML + " <span style='background:" + bgColor + ";border-radius:0.2em;padding:1px'>" + property + "</span>  ,"
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
         j++;
     }
-    NameMension.innerText = NameMension.innerText.slice(0, -2)
+    NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
     for (var s = 0; s < answerData.length; s++) {
 
     }

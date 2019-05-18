@@ -337,6 +337,11 @@ form,
 
 .answer {
 	font-weight: 700;
+	border-radius: 0.2em;
+	display: table;
+	padding: 2px;
+	margin-bottom: 3px;
+	margin-left: 1.2em;
 }
 
 #CopyBtn {
