@@ -24,7 +24,7 @@ const range = (start, end) => {
 
 function StackOne(i) {
     Qstart = "<p class='question'>"
-    Astart = "<p class='answer'>"
+    Astart = "<p class='answer'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
     Pclose = " </p> "
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
@@ -88,6 +88,8 @@ function StartStacking() {
 function MensionNames() {
 
     j = 0
+
+    NameMension.innerText = "Answers of "
 
     for (property in AttendedUsers) {
         console.log(property)
