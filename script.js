@@ -63,8 +63,9 @@ function CopyToClipboard() {
     const el = document.createElement('textarea');
     el.value = survey_url;
     el.setAttribute('readonly', '');
-    el.style.position = 'fixed';
-    el.style.left = '-9999px';
+    el.style.position = 'absolute';
+    //el.style.left = '-9999px';
+    el.style.zIndex = -100;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');
