@@ -60,16 +60,15 @@ function CreateSurvey() {
 }
 
 function CopyToClipboard() {
-
-    document.getElementById("surveyurl").value = survey_url
-    /* Get the text field */
-    var copyText = document.getElementById("surveyurl");
-
-    /* Select the text field */
-    copyText.select();
-
-    /* Copy the text inside the text field */
-    document.execCommand("copy");
+    const el = document.createElement('textarea');
+    el.value = survey_url;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
 
 }
 
