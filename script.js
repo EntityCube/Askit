@@ -63,8 +63,8 @@ function showKey(code) {
     Number_Question.innerHTML = "share this url to your friends"
     survey_url = "https://askit.netlify.com/survey.html#" + code
     results_url = "https://askit.netlify.com/results.html#" + code
-    Label_Heading.innerHTML = "<a href=" + survey_url + ">" + survey_url + "</a>"
-    Btn_Show_Results.innerHTML = "<a href=" + results_url + ">" + " <button> Show Results </button> </a > "
+    Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
+    Btn_Show_Results.innerHTML = "<a href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a > "
 }
 
 function hideAll() {
