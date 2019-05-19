@@ -331,10 +331,8 @@ form,
 .answer {
 	color: #ffffff;
 	text-align: left;
-	margin: 4px;
-
-	
-
+	margin: 0px;
+	vertical-align: middle;
 }
 
 .answer {
@@ -343,8 +341,9 @@ form,
 	border-radius: 0.2em;
 	margin-bottom: 10px;
 
-	
-	
+
+
+
 
 }
 
@@ -362,22 +361,19 @@ form,
 	background-clip: text;
 	float: left;
 	margin-left: 4px;
-	
-	
-	
+	margin: 3px;
 }
 
 
 .Ublock {
-display:table;
-float: left;
-margin: 0px;
-padding: 0px;
+	display: table;
+	float: left;
+	margin: 0px;
+	padding: 0px;
 }
 
 .OneAnswerWrapper {
 	margin-left: 1em;
-	display:flex;
+	display: flex;
 	vertical-align: middle;
 }
-
