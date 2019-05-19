@@ -18,15 +18,8 @@ if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
 
+    window.location.href = window.location.href = "/results.html#" + cookie_Data
 
-    var win = window.open('https://askit.netlify/results.html#' + cookie_Data, '_blank');
-    if (win) {
-        //Browser has allowed it to be opened
-        win.focus();
-    } else {
-        //Browser has blocked it
-        window.location.href = window.location.href = "/results.html#" + cookie_Data
-    }
+    createCookie('data', '', 1000)
 
-    createCookie('data', '', 1000);
 }

@@ -72,6 +72,11 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Create Buttons
+function createButtons() {
+    document.getElementById("surveyLink").innerHTML = "<a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>" + "<button style='margin-bottom:35px'> Open Survey Page </button>" + "</a> <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Link</button> "
+}
+
 // Get Survey attended users
 const AttendedUsersRef = firebase.database().ref().child(dbDataLocation).child('Results');
 AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
@@ -80,7 +85,8 @@ AttendedUsersRef.on('value', function () {
         NameMension.innerText = "Answers of"
         MensionNames()
     } else {
-        NameMension.innerText = "No Results"
+        NameMension.innerText = "No Results";
+        createButtons()
     }
 
 })
@@ -110,12 +116,27 @@ function StartStacking() {
     }
 }
 
+function CopyToClipboard() {
+    const el = document.createElement('textarea');
+    el.value = "https://askit.netlify.com/survey.html#" + dbDataLocation;
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+
+}
+
+
 // Get All Users who attended the survey
 function MensionNames() {
 
     j = 0
-    document.getElementById("surveyLink").innerHTML = "<a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>" + "<button> Open Survey Page </button>" + "</a>"
 
+
+    createButtons()
 
 
     for (property in AttendedUsers) {
