@@ -331,20 +331,53 @@ form,
 .answer {
 	color: #ffffff;
 	text-align: left;
-	margin: 0;
-	padding-bottom: 5px;
+	margin: 4px;
+
+	
+
 }
 
 .answer {
+	color: #ffffff;
 	font-weight: 700;
 	border-radius: 0.2em;
-	display: table;
-	padding: 2px;
-	margin-bottom: 3px;
-	margin-left: 1.2em;
+	margin-bottom: 10px;
+
+	
+	
+
 }
 
 #CopyBtn {
 	display: none;
 	margin-bottom: 15px;
 }
+
+.rainbow {
+
+	background-image: -webkit-gradient(linear, left center, right center, color-stop(0, rgb(183, 215, 15)), color-stop(0.15, rgb(255, 223, 0)));
+	background-image: gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f));
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	float: left;
+	margin-left: 4px;
+	
+	
+	
+}
+
+
+.Ublock {
+display:table;
+float: left;
+margin: 0px;
+padding: 0px;
+}
+
+.OneAnswerWrapper {
+	margin-left: 1em;
+	display:flex;
+	vertical-align: middle;
+}
+
