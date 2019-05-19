@@ -37,5 +37,6 @@ function closeLastResultsPopupBox() {
 }
 
 function openLastResults() {
+
     window.location.href = window.location.href = "/results.html#" + cookie_Data
 }
