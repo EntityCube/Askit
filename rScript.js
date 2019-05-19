@@ -74,7 +74,7 @@ firebase.initializeApp(firebaseConfig);
 
 // Create Buttons
 function createButtons() {
-    document.getElementById("surveyLink").innerHTML = "<a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>" + "<button style='margin-bottom:35px'> Open Survey Page </button>" + "</a> <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Link</button> "
+    document.getElementById("surveyLink").innerHTML = " <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Link</button> "
 }
 
 // Get Survey attended users
