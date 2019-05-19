@@ -380,14 +380,20 @@ form,
 }
 
 #Last_Results_Popup_Box {
-	position: fixed;
-	top: 40vh;
-	left: 20vh;
 	color: white;
-	background: rgb(252, 1, 55);
-	padding: 3px;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 13px;
+	margin: 10px;
 	border-radius: 0.5em;
-	width: 70vw;
-	font-size: 1em;
+	font-size: 1.2em;
+	text-align: center;
+	width: 75%;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #000003f3;
+
 	display: none;
 }

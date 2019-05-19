@@ -26,7 +26,7 @@ Btn_Copy_Link.addEventListener("click", CopyToClipboard)
 // Variables
 Questions = []
 
-// Cookies
+
 
 //////Cookies
 
@@ -73,6 +73,14 @@ if (getCookie('data') != "") {
 
 }
 
+// OpenResultsPopupBox
+function closeLastResultsPopupBox() {
+    document.getElementById("Last_Results_Popup_Box").style.display = "none"
+}
+
+function openLastResults() {
+    window.location.href = window.location.href = "/results.html#" + cookie_Data
+}
 
 
 // Functions for buttons
