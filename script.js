@@ -65,9 +65,9 @@ if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
 
-    setTimeout(function () {
-        window.location.href = "/results.html#" + cookie_Data
-    }, 300)
+
+    window.location.href = "/results.html#" + cookie_Data
+
 
     createCookie('data', '', 1000)
 
