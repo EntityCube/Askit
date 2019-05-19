@@ -85,7 +85,7 @@ AttendedUsersRef.on('value', function () {
         NameMension.innerText = "Answers of"
         MensionNames()
     } else {
-        NameMension.innerHTML = "No Results <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results";
+        NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
         createButtons()
     }
 
