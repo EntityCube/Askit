@@ -378,3 +378,16 @@ form,
 	display: flex;
 	vertical-align: middle;
 }
+
+#Last_Results_Popup_Box {
+	position: fixed;
+	top: 40vh;
+	left: 20vh;
+	color: white;
+	background: rgb(252, 1, 55);
+	padding: 3px;
+	border-radius: 0.5em;
+	width: 70vw;
+	font-size: 1em;
+	display: none;
+}
