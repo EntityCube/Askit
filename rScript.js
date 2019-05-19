@@ -85,7 +85,7 @@ AttendedUsersRef.on('value', function () {
         NameMension.innerText = "Answers of"
         MensionNames()
     } else {
-        NameMension.innerText = "No Results";
+        NameMension.innerHTML = "No Results <br> Share the url to your friends to see results";
         createButtons()
     }
 
