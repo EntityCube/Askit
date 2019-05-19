@@ -61,16 +61,19 @@ function getCookie(c_name) {
 // check whether user has old surveys made from this website
 
 if (getCookie('data') != "") {
-    console.log(getCookie('data'))
 
     cookie_Data = getCookie('data')
-
-
-    window.location.href = "/results.html#" + cookie_Data
-
-
+    document.getElementById("Last_Results_Popup_Box").style.display = "block"
     createCookie('data', '', 1000)
 
+}
+
+function closeLastResultsPopupBox() {
+    document.getElementById("Last_Results_Popup_Box").style.display = "none"
+}
+
+function openLastResults() {
+    window.location.href = window.location.href = "/results.html#" + cookie_Data
 }
 
 // OpenResultsPopupBox
