@@ -12,23 +12,12 @@ function getCookie(c_name) {
     }
     return "";
 }
-var createCookie = function (name, value, days) {
-    var expires;
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toGMTString();
-    } else {
-        expires = "";
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-}
+
 if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
-    createCookie('data', '', 1000)
     document.getElementById("Last_Results_Popup_Box").style.display = "block"
-
+    createCookie('data', '', 1000)
 
 }
 
@@ -37,6 +26,5 @@ function closeLastResultsPopupBox() {
 }
 
 function openLastResults() {
-
     window.location.href = window.location.href = "/results.html#" + cookie_Data
 }
