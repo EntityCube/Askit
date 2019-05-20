@@ -160,7 +160,7 @@ function MensionNames() {
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
         AnswersRef.on('value', function () {
-            if (answerData !== null) {
+            if (answerData !== null && QuestionsRef !== null) {
                 StartStacking()
             }
         })
