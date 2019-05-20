@@ -84,6 +84,7 @@ AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
         NameMension.innerText = "Answers of"
         MensionNames()
+        StartStacking()
 
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
@@ -105,7 +106,8 @@ QuestionsRef.on('value', snap => Questions = snap.val())
 "</p><p class='answer'>"
 QuestionsRef.on('value', function () {
     if (Questions !== null) {
-        StartStacking()
+        //StartStacking()
+        console.log
     }
 })
 
