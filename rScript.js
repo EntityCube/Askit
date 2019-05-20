@@ -163,6 +163,9 @@ function MensionNames() {
         NameMension.innerHTML = NameMension.innerHTML + /*" <span style='background:linear-gradient( 45deg ," + bgColor + "," + bgColor2 + ");border-radius:0.2em;padding:1px'>" */ " <span style='padding:1px'>" + property + "</span>  ,"
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
+        AnswersRef.on('value', function () {
+            console.log("new data arrived")
+        })
         j++;
     }
     NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
