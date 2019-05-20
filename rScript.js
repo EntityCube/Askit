@@ -52,11 +52,13 @@ function StackOne(i) {
 }
 
 function StackReload(i) {
+    QStack.innerHTML = ""
+
     Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
-    NumberOfAnswers = answerData.length - 1
+    NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
@@ -126,14 +128,13 @@ AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
 AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
         NameMension.innerText = "Answers of"
-        QStack.innerHTML = ""
 
         MensionNames()
 
         if (testLoad === false) {
             StartStacking()
         } else {
-            StackReload()
+            StartReloading()
         }
 
 
@@ -153,6 +154,12 @@ AttendedUsersRef.on('value', function () {
 function StartStacking() {
     for (i of range(1, Questions.length + 1)) {
         StackOne(i)
+    }
+}
+
+function StartReloading() {
+    for (i of range(1, Questions.length)) {
+        StackReload(i)
     }
 }
 
