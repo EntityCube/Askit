@@ -59,6 +59,7 @@ function getCookie(c_name) {
     return "";
 }
 
+
 // check whether user has old surveys made from this website
 
 
