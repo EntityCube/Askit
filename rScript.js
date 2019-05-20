@@ -34,7 +34,7 @@ function StackOne(i) {
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
-    NumberOfAnswers = answerData.length - 1
+    NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
@@ -64,7 +64,7 @@ function StackReload(i) {
 
 
 
-    for (k of range(0, NumberOfAnswers)) {
+    for (k of range(0, NumberOfAnswers - 1)) {
         Astart = "<div class='answer'>"
 
         PAnswer = Astart + `<div class='OneAnswerWrapper'><div class='Ublock' style='background:linear-gradient( 45deg ,` + AbgColor[k] + "," + AbgColor2[k] + `); padding: 2px; border-radius:0.3em; padding-left:5px;padding-right:5px'>` + Users[k] + ":" + "</div>" + "<div class='rainbow'>" + answerData[k][i - 1] + "</div></div>" + Pclose
