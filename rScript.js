@@ -33,6 +33,7 @@ function StackOne(i) {
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
+    answerData.length -= 1
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
@@ -93,7 +94,7 @@ QuestionsRef.on('value', snap => Questions = snap.val())
 QuestionsRef.on('value', function () {
     if (Questions !== null) {
         //StartStacking()
-        console.log
+        console.log(" ")
     }
 })
 
@@ -106,7 +107,7 @@ AttendedUsersRef.on('value', function () {
         QStack.innerHTML = ""
         MensionNames()
 
-        answerData.length -= 1
+
 
         StartStacking()
 
@@ -178,10 +179,8 @@ function MensionNames() {
         })
         j++;
     }
-    NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
-    for (var s = 0; s < answerData.length; s++) {
+    //NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
 
-    }
 }
 
 ///////// Cookie functions below
