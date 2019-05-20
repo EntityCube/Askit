@@ -101,7 +101,7 @@ function getRandomInteger(min, max) {
 
 // Get Survey Questions
 const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('questions');
-QuestionsRef.on('value', snap => Questions += snap.val())
+QuestionsRef.on('value', snap => Questions = snap.val())
 "</p><p class='answer'>"
 QuestionsRef.on('value', function () {
     if (Questions !== null) {
