@@ -32,7 +32,7 @@ function StackOne(i) {
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
-    NumberOfAnswers = answerData.length + 1
+    NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
@@ -117,7 +117,6 @@ function StartStacking() {
     }
 }
 
-
 function CopyToClipboard() {
     const el = document.createElement('textarea');
     el.value = "https://askit.netlify.com/survey.html#" + dbDataLocation;
@@ -165,7 +164,7 @@ function MensionNames() {
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
         AnswersRef.on('value', function () {
-            console.log("new data arrived")
+
         })
         j++;
     }
