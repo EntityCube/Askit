@@ -30,7 +30,6 @@ body {
 
 h2 {
 	color: #ffffff;
-	font-size: 1.75em;
 	text-align: center;
 	padding: 20px 0px 10px 0px;
 }
@@ -60,10 +59,10 @@ button {
 	border: none;
 	padding: 10px 25px;
 	font-weight: 600;
-	font-size: 1em;
 	border-radius: 999999px;
 	background-color: #ffffff;
 	color: #f50669;
+	width: 100%;
 }
 
 .button-color {
@@ -250,14 +249,15 @@ form,
 
 .button-container {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
 }
 
 
 .button-container button {
-	margin: 25px 0px;
-	width: 45%;
+	margin-top: 10px;
+	width: 100%;
 }
 
 #pop-up-container {
@@ -297,6 +297,7 @@ form,
 	font-weight: 700;
 	margin-top: 10px;
 	color: #f50669;
+	width: 100%;
 }
 
 #submit-box input[type=text],
@@ -313,7 +314,11 @@ form,
 
 #heading a {
 	color: #ffffff;
-	font-size: .8em;
+	display: block;
+	overflow: scroll;
+	width: 100%;
+	font-size: 0.5em;
+
 }
 
 #heading a:hover {
@@ -351,6 +356,7 @@ form,
 #CopyBtn {
 	display: none;
 	margin-bottom: 15px;
+	width: 100%;
 }
 
 .rainbow {
@@ -385,7 +391,6 @@ form,
 	padding: 13px;
 	margin: 10px;
 	border-radius: 0.5em;
-	font-size: 1em;
 	text-align: center;
 	width: 75%;
 	position: fixed;
@@ -397,3 +402,6 @@ form,
 
 	display: none;
 }
+
+/*-----responsive------*/
+
