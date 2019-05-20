@@ -77,21 +77,7 @@ function createButtons() {
     document.getElementById("surveyLink").innerHTML = " <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Survey Link</button> "
 }
 
-// Get Survey attended users
-const AttendedUsersRef = firebase.database().ref().child(dbDataLocation).child('Results');
-AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
-AttendedUsersRef.on('value', function () {
-    if (AttendedUsers !== null) {
-        NameMension.innerText = "Answers of"
-        MensionNames()
-        StartStacking()
 
-    } else {
-        NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
-        createButtons()
-    }
-
-})
 
 // Randomiser
 function getRandomInteger(min, max) {
@@ -109,6 +95,22 @@ QuestionsRef.on('value', function () {
         //StartStacking()
         console.log
     }
+})
+
+// Get Survey attended users
+const AttendedUsersRef = firebase.database().ref().child(dbDataLocation).child('Results');
+AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
+AttendedUsersRef.on('value', function () {
+    if (AttendedUsers !== null) {
+        NameMension.innerText = "Answers of"
+        MensionNames()
+        StartStacking()
+
+    } else {
+        NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
+        createButtons()
+    }
+
 })
 
 
