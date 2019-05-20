@@ -42,8 +42,6 @@ var createCookie = function (name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-
-
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=");
@@ -59,9 +57,7 @@ function getCookie(c_name) {
     return "";
 }
 
-
 // check whether user has old surveys made from this website
-
 
 if (getCookie('data') != "") {
 
