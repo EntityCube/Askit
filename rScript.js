@@ -103,6 +103,7 @@ AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
 AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
         NameMension.innerText = "Answers of"
+        QStack.innerHTML = ""
         MensionNames()
         StartStacking()
 
