@@ -141,8 +141,8 @@ function StartStacking() {
 
 function ReloadStacking() {
     QStack.innerHTML = ""
-    for (i of range(1, Questions.length)) {
-        StackReload(i)
+    for (i of range(1, Questions.length + 1)) {
+        StackOne(i - 1)
     }
 }
 
