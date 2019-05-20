@@ -103,11 +103,7 @@ function getRandomInteger(min, max) {
 const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('questions');
 QuestionsRef.on('value', snap => Questions = snap.val())
 "</p><p class='answer'>"
-QuestionsRef.on('value', function () {
-    if (Questions !== null) {
-        StartStacking()
-    }
-})
+
 
 
 // Call to Stack by Questions length
@@ -155,10 +151,7 @@ function MensionNames() {
         blue2 = blue
         bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.1)"
 
-        console.log("bgcolor ")
-        console.log(bgColor)
-        console.log("bgColor2 ")
-        console.log(bgColor2)
+
         AbgColor[j] = bgColor
         AbgColor2[j] = bgColor2
 
@@ -166,6 +159,12 @@ function MensionNames() {
         NameMension.innerHTML = NameMension.innerHTML + /*" <span style='background:linear-gradient( 45deg ," + bgColor + "," + bgColor2 + ");border-radius:0.2em;padding:1px'>" */ " <span style='padding:1px'>" + property + "</span>  ,"
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
+        AnswerRef.on('value', function () {
+            if (answerData !== null) {
+                StartStacking()
+            }
+        })
+
         j++;
     }
     NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
