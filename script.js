@@ -43,6 +43,7 @@ var createCookie = function (name, value, days) {
 }
 
 
+
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=");
