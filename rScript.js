@@ -34,7 +34,7 @@ function StackOne(i) {
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
-    NumberOfAnswers = answerData.length
+    NumberOfAnswers = answerData.length - 1
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
