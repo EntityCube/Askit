@@ -61,6 +61,7 @@ function getCookie(c_name) {
 
 // check whether user has old surveys made from this website
 
+
 if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
