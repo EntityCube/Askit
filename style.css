@@ -167,6 +167,10 @@ button:active {
 	flex: 1;
 }
 
+.top_container button {
+	width: auto;
+}
+
 .create-survey {
 	clear: both;
 	padding-top: 5vh;
@@ -186,11 +190,6 @@ input {
 
 .survey_buttons {
 	clear: both;
-}
-
-.create_survey_button {
-	margin: auto;
-	display: block;
 }
 
 form,
@@ -324,6 +323,10 @@ form,
 #heading a:hover {
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 	background: none;
+}
+
+.show-result-btn-a {
+	padding: 0;
 }
 
 /*-----result page-----*/
