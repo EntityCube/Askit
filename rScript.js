@@ -117,6 +117,12 @@ function StartStacking() {
     }
 }
 
+function ReloadStacking() {
+    for (i of range(1, Questions.length)) {
+        StackOne(i)
+    }
+}
+
 function CopyToClipboard() {
     const el = document.createElement('textarea');
     el.value = "https://askit.netlify.com/survey.html#" + dbDataLocation;
