@@ -160,6 +160,7 @@ function StartStacking() {
 function StartReloading() {
     for (i of range(1, Questions.length + 1)) {
         StackReload(i)
+
     }
 }
 
