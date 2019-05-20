@@ -53,7 +53,6 @@ function StackOne(i) {
 
 function StackReload(i) {
 
-
     Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
