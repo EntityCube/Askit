@@ -64,7 +64,7 @@ if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
     document.getElementById("Last_Results_Popup_Box").style.display = "block"
-    createCookie('data', '', 1000)
+    //createCookie('data', '', 1000)
 
 }
 
