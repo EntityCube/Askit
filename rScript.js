@@ -200,7 +200,7 @@ function MensionNames() {
         }
         green2 = green
         blue2 = blue
-        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.01)"
+        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.1)"
 
 
 
