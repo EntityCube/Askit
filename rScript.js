@@ -15,6 +15,8 @@ AbgColor2 = []
 
 Users = []
 
+testLoad = false
+
 //Range function to stack in order
 
 const range = (start, end) => {
@@ -33,7 +35,6 @@ function StackOne(i) {
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
-
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
 
@@ -50,6 +51,27 @@ function StackOne(i) {
     CurrentAnswerBlock = ""
 }
 
+function StackReload(i) {
+    Qstart = "<p class='question'>"
+    Astart = "<p class='answer' >"
+    Pclose = " </div>"
+    Panswer = answerData[0][i - 1]
+    NumberOfAnswers = answerData.length - 1
+    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
+    PAnswer = Astart + Panswer + Pclose
+
+
+
+    for (k of range(0, NumberOfAnswers)) {
+        Astart = "<div class='answer'>"
+
+        PAnswer = Astart + `<div class='OneAnswerWrapper'><div class='Ublock' style='background:linear-gradient( 45deg ,` + AbgColor[k] + "," + AbgColor2[k] + `); padding: 2px; border-radius:0.3em; padding-left:5px;padding-right:5px'>` + Users[k] + ":" + "</div>" + "<div class='rainbow'>" + answerData[k][i - 1] + "</div></div>" + Pclose
+        CurrentAnswerBlock = CurrentAnswerBlock + PAnswer
+    }
+
+    QStack.innerHTML = PQuestion + CurrentAnswerBlock
+    CurrentAnswerBlock = ""
+}
 
 
 
@@ -105,11 +127,18 @@ AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
         NameMension.innerText = "Answers of"
         QStack.innerHTML = ""
+
         MensionNames()
 
+        if (testLoad === false) {
+            StartStacking()
+        } else {
+            StackReload()
+        }
 
 
-        StartStacking()
+
+        testLoad = true
 
 
     } else {
