@@ -52,7 +52,7 @@ function StackOne(i) {
 }
 
 function StackReload(i) {
-    QStack.innerHTML = ""
+
 
     Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
@@ -131,9 +131,10 @@ AttendedUsersRef.on('value', function () {
 
         MensionNames()
 
-        if (testLoad === false) {
+        if (testLoad == false) {
             StartStacking()
         } else {
+            QStack.innerHTML = ""
             StartReloading()
         }
 
