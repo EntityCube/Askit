@@ -42,7 +42,6 @@ var createCookie = function (name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-
 function getCookie(c_name) {
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=");
@@ -64,8 +63,7 @@ if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
     document.getElementById("Last_Results_Popup_Box").style.display = "block"
-    createCookie('data', '', 1000)
-
+    //createCookie('data', '', 1000)
 }
 
 function closeLastResultsPopupBox() {

@@ -84,6 +84,7 @@ AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
         NameMension.innerText = "Answers of"
         MensionNames()
+
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
         createButtons()
@@ -154,10 +155,7 @@ function MensionNames() {
         blue2 = blue
         bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.1)"
 
-        console.log("bgcolor ")
-        console.log(bgColor)
-        console.log("bgColor2 ")
-        console.log(bgColor2)
+
         AbgColor[j] = bgColor
         AbgColor2[j] = bgColor2
 
@@ -165,6 +163,9 @@ function MensionNames() {
         NameMension.innerHTML = NameMension.innerHTML + /*" <span style='background:linear-gradient( 45deg ," + bgColor + "," + bgColor2 + ");border-radius:0.2em;padding:1px'>" */ " <span style='padding:1px'>" + property + "</span>  ,"
         const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
+        AnswersRef.on('value', function () {
+            console.log("hello")
+        })
         j++;
     }
     NameMension.innerHTML = NameMension.innerHTML.slice(0, -2)
