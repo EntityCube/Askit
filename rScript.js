@@ -213,7 +213,7 @@ function MensionNames() {
 
         red = getRandomInteger(5, 250)
         green = getRandomInteger(5, 80)
-        blue = getRandomInteger(5, 200)
+        blue = getRandomInteger(5, 20)
         bgColor = "rgba(" + red + "," + green + "," + blue + ",0.6)"
 
         red2 = red + 50
