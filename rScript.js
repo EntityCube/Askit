@@ -74,6 +74,15 @@ function StackReload(i) {
     CurrentAnswerBlock = ""
 }
 
+function StackQuestionsOnly(i) {
+
+    Qstart = "<p class='question'>"
+    Pclose = " </div>"
+    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
+
+    QStack.innerHTML = PQuestion
+}
+
 
 
 dbDataLocation = "demo"
@@ -145,6 +154,7 @@ AttendedUsersRef.on('value', function () {
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
         createButtons()
+        StartQuestionsOnly()
     }
 
 })
@@ -160,6 +170,13 @@ function StartStacking() {
 function StartReloading() {
     for (i of range(1, Questions.length + 1)) {
         StackReload(i)
+
+    }
+}
+
+function StartQuestionsOnly() {
+    for (i of range(1, Questions.length + 1)) {
+        StackQuestionsOnly(i)
 
     }
 }
