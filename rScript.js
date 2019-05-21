@@ -56,9 +56,11 @@ function StackReload(i) {
     Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
-    Panswer = answerData[0][i - 1]
-    if (Panswer == null) {
+
+    if (answerData[0][i - 1] == null) {
         Panswer = ""
+    } else {
+        Panswer = answerData[0][i - 1]
     }
     NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
