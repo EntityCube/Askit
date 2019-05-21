@@ -28,7 +28,6 @@ const range = (start, end) => {
 
 
 // Stack Question and Answers
-
 function StackOne(i) {
     Qstart = "<div class='question'>"
     Astart = "<p class='answer' >"
