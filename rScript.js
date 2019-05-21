@@ -154,6 +154,7 @@ AttendedUsersRef.on('value', function () {
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
         createButtons()
+        Qstack.innerHTML = ""
         StartQuestionsOnly()
     }
 
