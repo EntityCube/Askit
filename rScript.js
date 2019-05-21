@@ -30,12 +30,12 @@ const range = (start, end) => {
 // Stack Question and Answers
 
 function StackOne(i) {
-    Qstart = "<div class='question'>"
+    Qstart = "<div class='question' class='OneAnswerWrapper'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
-    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
+    PQuestion = QStack.innerHTML + '<div class="Qnumber">' + Qstart + i + ". " + '</div>' + '<div class="Qcontent">' + Questions[i - 1] + '</div>' + Pclose
     PAnswer = Astart + Panswer + Pclose
 
 
