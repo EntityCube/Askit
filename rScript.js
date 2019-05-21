@@ -211,7 +211,7 @@ function MensionNames() {
 
     for (property in AttendedUsers) {
 
-        red = getRandomInteger(5, 80)
+        red = getRandomInteger(5, 250)
         green = getRandomInteger(5, 80)
         blue = getRandomInteger(5, 200)
         bgColor = "rgba(" + red + "," + green + "," + blue + ",0.2)"
