@@ -344,15 +344,16 @@ form,
 
 }
 
+.question {
+	margin-left: 1em;
+	display: flex;
+}
+
 .answer {
 	color: #ffffff;
 	font-weight: 700;
 	border-radius: 0.2em;
 	margin-bottom: 10px;
-
-
-
-
 
 }
 
@@ -372,6 +373,17 @@ form,
 	float: left;
 	margin-left: 4px;
 	margin: 3px;
+}
+
+.Qnumber {
+	display: table;
+	float: left;
+	margin: 0px;
+	padding: 0px
+}
+
+.Qcontent {
+	float: left;
 }
 
 
@@ -407,4 +419,3 @@ form,
 }
 
 /*-----responsive------*/
-

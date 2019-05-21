@@ -30,7 +30,7 @@ const range = (start, end) => {
 // Stack Question and Answers
 
 function StackOne(i) {
-    Qstart = "<div class='question' class='OneAnswerWrapper'>"
+    Qstart = "<div class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
