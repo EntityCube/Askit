@@ -169,7 +169,7 @@ function StartStacking() {
 }
 
 function StartReloading() {
-    Qstack.innerHTML = ""
+    QStack.innerHTML = ""
     for (i of range(1, Questions.length + 1)) {
         StackReload(i)
 
