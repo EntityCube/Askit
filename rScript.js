@@ -214,7 +214,7 @@ function MensionNames() {
         red = getRandomInteger(5, 250)
         green = getRandomInteger(5, 80)
         blue = getRandomInteger(5, 200)
-        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.2)"
+        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.6)"
 
         red2 = red + 50
         if (red2 > 255) {
@@ -222,7 +222,7 @@ function MensionNames() {
         }
         green2 = green
         blue2 = blue
-        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.1)"
+        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.3)"
 
 
 
