@@ -140,6 +140,7 @@ AttendedUsersRef.on('value', function () {
         MensionNames()
 
         if (testLoad == false) {
+            QStack.innerHTML = ""
             StartStacking()
         } else {
             QStack.innerHTML = ""
@@ -176,6 +177,7 @@ function StartReloading() {
 }
 
 function StartQuestionsOnly() {
+    testLoad = true
     for (i of range(1, Questions.length + 1)) {
         StackQuestionsOnly(i)
 
