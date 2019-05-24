@@ -12,52 +12,94 @@
 
 <body>
 
-	<div class="top_container">
-
+	<div class="top-container">
+	
 		<div class="header">
-			<a href="index.html">
-				<p class="logo">AskIt</p>
-			</a>
-			<a href="profile.html">
-				<img class="user_icon" src="/img/user-icon.svg" alt="User Icon">
-			</a>
+
+			<a class="logo" href="index.html">AskIt</a>
+
+			<div class="nav">
+				<button class="btn-outline">Sign In</button>
+				<button>Sign Up</button>
+			</div>
+
 		</div>
 
-		<h2 class="create-survey-heading" id="heading">Create Your Survey</h2>
+		<h2 id="heading">Create Your Survey</h2>
 
 		<div class="survey-form">
+
 			<label class="label">Question 1</label>
-			<button id="CopyBtn" class="">Copy Link</button>
-			<div id="ShowResultsBtn"></div>
-			<input id="surveyurl" type="text" style="position: absolute; z-index: -10; left: -1000px">
+			
+			<button id="CopyBtn">Copy Link</button>
+			
 			<input class="question-input" type="text" name="question1" placeholder="Type Question Here">
 
-			<div class="button-container">
-				<button class="add-question-button">
-					Add Question</button>
-				<button id="submit-button">Submit</button>
+			<button class="add-question-button">Add Question</button>
+			<button id="submit-button">Submit</button>
+
+		</div>
+
+		<div class="step">
+			<div class="step-no">
+				<P>1</P>
+			</div>
+			<div class="step-description">
+				<p>Type you question</p>
 			</div>
 		</div>
 
+		<div class="step">
+			<div class="step-no">
+				<P>2</P>
+			</div>
+			<div class="step-description">
+				<p>Click "Add Question" to save the typed question.<p>
+			</div>
+		</div>
+
+		<div class="step">
+			<div class="step-no">
+				<P>3</P>
+			</div>
+			<div class="step-description">
+				<p>Repeat Steps 1 and 2 to add more questions</p>
+			</div>
+		</div>
+
+		<div class="step">
+			<div class="step-no">
+				<P>4</P>
+			</div>
+			<div class="step-description">
+				<p>Click "Submit" to create survey</p>
+			</div>
+		</div>
+
+		<div class="step">
+			<div class="step-no">
+				<P>5</P>
+			</div>
+			<div class="step-description">
+				<p>Type your name in the pop-up to finish creating survey</p>
+			</div>
+		</div>
+		
 	</div>
 
 	<div class="footer">
-		<div class="footer_items">
-			<p class="footer-logo">
-				<a href="index.html">Askit</a>
-			</p>
+
+		<div class="footer-items">
+			<a class="footer-logo logo" href="index.html">AskIt</a>
 		</div>
-		<div class="footer_items">
-			<ul>
-				<a href="terms-of-use.html">
-					<li>Terms of Use</li>
-				</a>
-				<br>
-				<a href="privacy-policy.html">
-					<li>Privacy Policy</li>
-				</a>
+
+		<div class="footer-items">
+			<ul>	
+				<li><a href="terms-and-conditions">Terms and Conditions</a></li>
+				<li><a href="cookie-policy">Cookie Policy</a></li>
 			</ul>
 		</div>
+
 	</div>
 
 	<div id="pop-up-container">
@@ -66,14 +108,6 @@
 			<input id="create-survey-button" type=button value="Create Your Survey">
 		</div>
 	</div>
-
-	<div id="Last_Results_Popup_Box">
-		Do you want to open your last Created Survey Results <br>
-		<button onclick="openLastResults()" style="margin-bottom: 5px"> Open </button>
-
-		<button onclick="closeLastResultsPopupBox()"> Dismiss </button>
-	</div>
-
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>

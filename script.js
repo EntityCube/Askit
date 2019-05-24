@@ -11,12 +11,6 @@ Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Copy_Link = document.getElementById("CopyBtn")
 
-
-
-
-
-
-
 //Adding Event listener (Add Question, Submit, Create Survey)
 Btn_Submit.addEventListener("click", Submit)
 Btn_Create_Survey.addEventListener("click", CreateSurvey)
@@ -25,8 +19,6 @@ Btn_Copy_Link.addEventListener("click", CopyToClipboard)
 
 // Variables
 Questions = []
-
-
 
 //////Cookies
 
@@ -87,9 +79,9 @@ function openLastResults() {
 // Functions for buttons
 function AddQuestion() {
     if (Input_Question.value == false) {
-        alert("there nothing written here")
+        alert("Type a question.")
     } else if (Input_Question.value.length > 101) {
-        alert("exceeded character limit of question (max: 100)")
+        alert("Question shouldn't exeed 100 characters.")
     } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
@@ -99,7 +91,7 @@ function AddQuestion() {
 
 function Submit() {
     if (Questions.length == false) {
-        alert("please add a question for your survey")
+        alert("Add atleast one question before submitting.")
     } else {
         Box_Submit.style.display = "block"
         Box_Submit_Container.style.display = "block"
@@ -135,7 +127,7 @@ function showKey(code) {
     Box_Submit.style.display = "none"
     Box_Submit_Container.style.display = "none"
     hideAll()
-    Btn_Copy_Link.style.display = "inline-block"
+    Btn_Copy_Link.style.display = "block"
 
     Number_Question.innerHTML = "share this url to your friends"
     survey_url = "https://askit.netlify.com/survey.html#" + code

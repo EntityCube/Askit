@@ -28,14 +28,17 @@ const range = (start, end) => {
 
 
 // Stack Question and Answers
+
 function StackOne(i) {
-    Qstart = "<div class='question'>"
+    Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
     Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
-    PQuestion = QStack.innerHTML + Qstart + '<div class="Qnumber">' + i + ". " + '</div>' + '<div class="Qcontent">' + Questions[i - 1] + '</div>' + Pclose
+    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
+
+
 
     for (k of range(0, NumberOfAnswers)) {
         Astart = "<div class='answer'>"
@@ -53,12 +56,7 @@ function StackReload(i) {
     Qstart = "<p class='question'>"
     Astart = "<p class='answer' >"
     Pclose = " </div>"
-
-    if (answerData[0][i - 1] == null) {
-        Panswer = ""
-    } else {
-        Panswer = answerData[0][i - 1]
-    }
+    Panswer = answerData[0][i - 1]
     NumberOfAnswers = answerData.length
     PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
     PAnswer = Astart + Panswer + Pclose
@@ -74,15 +72,6 @@ function StackReload(i) {
 
     QStack.innerHTML = PQuestion + CurrentAnswerBlock
     CurrentAnswerBlock = ""
-}
-
-function StackQuestionsOnly(i) {
-
-    Qstart = "<p class='question'>"
-    Pclose = " </div>"
-    PQuestion = QStack.innerHTML + Qstart + i + ". " + Questions[i - 1] + Pclose
-
-    QStack.innerHTML = PQuestion
 }
 
 
@@ -142,7 +131,6 @@ AttendedUsersRef.on('value', function () {
         MensionNames()
 
         if (testLoad == false) {
-            QStack.innerHTML = ""
             StartStacking()
         } else {
             QStack.innerHTML = ""
@@ -157,7 +145,6 @@ AttendedUsersRef.on('value', function () {
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
         createButtons()
-        StartQuestionsOnly()
     }
 
 })
@@ -171,17 +158,8 @@ function StartStacking() {
 }
 
 function StartReloading() {
-    QStack.innerHTML = ""
     for (i of range(1, Questions.length + 1)) {
         StackReload(i)
-
-    }
-}
-
-function StartQuestionsOnly() {
-    testLoad = true
-    for (i of range(1, Questions.length + 1)) {
-        StackQuestionsOnly(i)
 
     }
 }
@@ -211,10 +189,10 @@ function MensionNames() {
 
     for (property in AttendedUsers) {
 
-        red = getRandomInteger(5, 250)
-        green = getRandomInteger(5, 80)
-        blue = getRandomInteger(5, 20)
-        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.6)"
+        red = getRandomInteger(55, 80)
+        green = getRandomInteger(50, 80)
+        blue = getRandomInteger(155, 200)
+        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.5)"
 
         red2 = red + 50
         if (red2 > 255) {
@@ -222,7 +200,7 @@ function MensionNames() {
         }
         green2 = green
         blue2 = blue
-        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.3)"
+        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.1)"
 
 
 

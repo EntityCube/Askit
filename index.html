@@ -2,79 +2,107 @@
 <html lang="en">
 
 <head>
-
-	<title>Askit - How Well Does Your Friends Know You</title>
+	<title>Askit - Find out how well your Friends Know You.</title>
 	<link type="text/css" rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,700i,900,900i" rel="stylesheet">
-
 </head>
 
 <body>
-
-	<div class="top_container">
+	
+	<div class="top-container">
+		
 		<div class="header">
-			<a href="index.html">
-				<p class="logo">AskIt</p>
-			</a>
-			<a href="profile.html">
-				<img class="user_icon" src="img/user-icon.svg" alt="User Icon">
-			</a>
+				
+			<a class="logo" href="index.html">AskIt</a>
+			
+			<div class="nav">
+				<button class="btn-outline">Sign In</button>
+				<button>Sign Up</button>
+			</div>
+		
 		</div>
-
-		<div class="create-survey">
-			<p class="survey_text">
-				Find how much your Friends Know about You
-			</p>
+		
+		<div class="hero">
+			<p class="tagline"> Find out how well your Friends Know You. </p>
+			
+			<p> Create you custom Survey </p>
 			<a href="create-survey.html">
 				<button>Create Survey</button>
 			</a>
+			
+			<p> See what your Friend answerd in your Survey </p>
+			<a href="results.html">
+				<button>See Answers</button>
+			</a>
 		</div>
-
+		
 	</div>
-
+	
 	<div class="about">
 		<h2>About</h2>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec pretium nisl, in pellentesque erat.
-			Vestibulum id imperdiet orci. Aenean placerat sagittis lacus, vitae finibus turpis blandit a. Phasellus
-			rutrum nibh vitae mauris finibus, a mollis lorem bibendum. Phasellus elit mi, iaculis ac tincidunt a,
-			porttitor sit amet nisi. Pellentesque ut sodales eros. Curabitur quis pellentesque sapien, id tincidunt
-			nunc. Quisque tempor mattis nisl non venenatis. Donec dapibus et ex et molestie. Donec placerat vestibulum
-			orci vel interdum. Sed condimentum odio at risus maximus vestibulum. Aenean quam orci, venenatis quis
-			sagittis et, gravida vitae quam. Nam justo felis, pellentesque gravida sapien ut, suscipit faucibus turpis.
-			Donec non ultrices urna. In eget libero tempor, tristique metus ac, imperdiet est.
-		</p>
+		<p> Askit lets You Easily Create Surveys which you can Send to Friends to Test how well your Friends Know You. You will be able to See their Answers on Your Dashboard.</p>
 	</div>
-
-	<div class="footer">
-		<div class="footer_items">
-			<p class="footer-logo">
-				<a href="index.html">AskIt</a>
-			</p>
+	
+	<div class="how-it-works">
+		
+		<h2>How It Works</h2>
+		
+		<div class="step">
+			<div class="step-no">
+				<P>1</P>
+			</div>
+			<div class="step-description">
+				<p>You create a survey with questions you want to ask your friends.</p>
+			</div>
 		</div>
-		<div class="footer_items">
-			<ul>
-				<a href="terms-of-use.html">
-					<li>Terms of Use</li>
-				</a>
-				<br>
-				<a href="privacy-policy.html">
-					<li>Privacy Policy</li>
-				</a>
-			</ul>
+		
+		<div class="step">
+			<div class="step-no">
+				<P>2</P>
+			</div>
+			<div class="step-description">
+				<p>Share the generated link to your friends.</p>
+			</div>
 		</div>
-	</div>
+		
+		<div class="step">
+			<div class="step-no">
+				<P>3</P>
+			</div>
+			<div class="step-description">
+				<p>You friends will be taken to a page where they can asnwer you survey when they open the link.</p>
+			</div>
+		</div>
+		
+		<div class="step">
+			<div class="step-no">
+				<P>4</P>
+			</div>
+			<div class="step-description">
+				<p>You can see all the answer to your survey on you dashboard</p>
+			</div>
+		</div>
 
-	<div id="Last_Results_Popup_Box">
-		Do you want to open your last Created Survey Results <br>
-		<button onclick="openLastResults()" style="margin-bottom: 5px"> Open </button>
-
-		<button onclick="closeLastResultsPopupBox()"> Dismiss </button>
-	</div>
+		</div>
+	
+		<div class="footer">
+			
+			<div class="footer-items">
+				<a class="footer-logo logo" href="index.html">AskIt</a>
+			</div>
+			
+			<div class="footer-items">
+				<ul>	
+					<li><a href="terms-and-conditions">Terms and Conditions</a></li>
+					<li><a href="cookie-policy">Cookie Policy</a></li>
+				</ul>
+			</div>
+			
+		</div>
 
 </body>
-
+	
 <script src="base.js"></script>
 
 </html>
