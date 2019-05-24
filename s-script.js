@@ -27,8 +27,7 @@ function LoadNextQuestion() {
             answers.push(Input_Answer.value)
 
             Input_Answer.value = ""
-            Label_Question_num.innerHTML = "Question " + (answers.length + 1)
-            Label_Question.innerHTML = data[answers.length]
+
             if (data.length == answers.length) {
                 Box_Answer_Background.style.display = "block"
                 Box_Answer.style.display = "block"
@@ -39,6 +38,9 @@ function LoadNextQuestion() {
                     divsToHide[i].style.display = "none";
                 }
 
+            } else {
+                Label_Question_num.innerHTML = "Question " + (answers.length + 1)
+                Label_Question.innerHTML = data[answers.length]
             }
 
         }
