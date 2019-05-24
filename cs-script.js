@@ -80,8 +80,8 @@ function openLastResults() {
 function AddQuestion() {
     if (Input_Question.value == false) {
         alert("Type a question.")
-    } else if (Input_Question.value.length > 101) {
-        alert("Question shouldn't exeed 100 characters.")
+    } else if (Input_Question.value.length > 201) {
+        alert("Question shouldn't exeed 200 characters.")
     } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
@@ -95,6 +95,13 @@ function Submit() {
     } else {
         Box_Submit.style.display = "block"
         Box_Submit_Container.style.display = "block"
+
+        var divsToHide = document.getElementsByClassName("step");
+        for (var i = 0; i < divsToHide.length; i++) {
+            //divsToHide[i].style.visibility = "hidden";
+            divsToHide[i].style.display = "none";
+        }
+
     }
 }
 

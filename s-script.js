@@ -32,6 +32,13 @@ function LoadNextQuestion() {
             if (data.length == answers.length) {
                 Box_Answer_Background.style.display = "block"
                 Box_Answer.style.display = "block"
+
+                var divsToHide = document.getElementsByClassName("step");
+                for (var i = 0; i < divsToHide.length; i++) {
+                    //divsToHide[i].style.visibility = "hidden";
+                    divsToHide[i].style.display = "none";
+                }
+
             }
 
         }
