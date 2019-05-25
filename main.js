@@ -28,13 +28,13 @@ var createCookie = function (name, value, days) {
 if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
-    document.getElementById("Last_Results_Popup_Box").style.display = "block"
+    //document.getElementById("Last_Results_Popup_Box").style.display = "block"
     //createCookie('data', '', 1000)
 
 }
 
 function closeLastResultsPopupBox() {
-    document.getElementById("Last_Results_Popup_Box").style.display = "none"
+    // document.getElementById("Last_Results_Popup_Box").style.display = "none"
 }
 
 function openLastResults() {
