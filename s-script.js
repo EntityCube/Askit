@@ -2,7 +2,7 @@ answers = []
 
 // Linking
 Btn_Next = document.getElementById("next-button")
-Label_Question = document.getElementsByClassName("survey-question-label")[0]
+Label_Question = document.getElementsByClassName("survey-question")[0]
 Label_Question_num = document.getElementById("survey-question-number")
 Input_Answer = document.getElementsByClassName("answer-input")[0]
 Box_Answer = document.getElementById("answer-box")
@@ -22,7 +22,7 @@ function LoadNextQuestion() {
         if (Input_Answer.value == false) {
             alert("please write the answer")
         } else if (Input_Answer.value.length > 101) {
-            alert("character limit exceeded")
+            alert("character limit exceeded (max 100 characters)")
         } else {
             answers.push(Input_Answer.value)
 

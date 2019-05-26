@@ -1,7 +1,7 @@
 /*-----General-----*/
 :root {
-	--pink: #ff0073;
-	--orange: #fc6202;
+	--pink: #ff0066;
+	--orange: #ff6a00;
 }
 
 * {
@@ -24,28 +24,47 @@ h2 {
 	color: #ffffff;
 	text-align: center;
 	padding: 30px 0;
+	font-size: 2em;
 }
 
 h3 {
 	color: #ffffff;
 	text-align: center;
+	padding: 10px 0;
 }
 
 p {
 	color: #555555;
 }
 
+a {
+	color: #ffffff;
+	font-weight: 600;
+}
+
+a:hover {
+	text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
 a:active {
 	transform: scale(0.95);
 }
 
-button, input[type=button] {
+button,
+input[type=button],
+input[type=submit] {
 	border: none;
 	padding: 10px 30px;
 	font-weight: 600;
 	border-radius: 999999px;
 	background-color: #ffffff;
 	color: var(--pink);
+}
+
+button:hover,
+input[type=button]:hover,
+input[type=submit]:hover {
+	cursor: pointer;
 }
 
 .button-color {
@@ -71,11 +90,15 @@ input::placeholder {
 }
 
 button:hover,
-button:focus {
+input[type=submit]:hover,
+button:focus,
+input[type=submit]:focus {
 	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
-input[type=text] {
+input[type=text],
+input[type=email],
+input[type=password] {
 	padding: 10px 30px;
 	border-radius: 999999999px;
 	width: 100%;
@@ -83,28 +106,37 @@ input[type=text] {
 	background: rgba(0, 0, 0, 0.2);
 	color: #ffffff;
 	border: none;
+	margin-bottom: 10px;
 }
 
 input[type=text]:hover,
 inuput[type=text]:active,
-input[type=text]:focus{
+input[type=text]:focus,
+input[type=email]:hover,
+inuput[type=email]:active,
+input[type=email]:focus,
+input[type=password]:hover,
+inuput[type=password]:active,
+input[type=password]:focus {
 	background: rgba(0, 0, 0, 0.5);
 }
 /*-----header-----*/
 
 .header {
-	padding: 5vw 5vw 5vw 30px;
+	padding: 5vw 5vw 30px 5vw;
 	width: 100%;
-	overflow: auto;
+	text-align: left;
+	display: table;
 }
 
 .logo {
 	color: #ffffff;
 	font-weight: 900;
 	font-style: italic;
-	font-size: 1.5em;
-	line-height: 1;
-	float: left;
+	font-size: 2em;
+	letter-spacing: 2px;
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .logo:hover {
@@ -135,6 +167,10 @@ input[type=text]:focus{
 	display: flex;
 	text-align: center;
 	align-items: center;
+}
+
+.footer-logo {
+	display: inline-block;
 }
 
 .footer-items {
@@ -203,6 +239,23 @@ input[type=text]:focus{
 	color: #ffffff;
 }
 
+.tip {
+	width: 90%;
+	margin: auto;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	padding: 10px;
+	text-align: left;
+}
+
+.seperator {
+	color: #ffffff;
+	font-weight: 600;
+	border-top: 2px solid #ffffff;
+	border-bottom: 2px solid #ffffff;
+	margin: 30px 0;
+}
+
 /*-----home page-----*/
 
 .top-container {
@@ -236,7 +289,7 @@ input[type=text]:focus{
 
 .about {
 	background-color: #ffffff;
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 	width: 90%;
 	max-width: 480px;
 	margin: auto;
@@ -253,19 +306,21 @@ input[type=text]:focus{
 
 .how-it-works {
 	background: linear-gradient(30deg, var(--pink), var(--orange));
-	padding-bottom: 20px;
+	padding-bottom: 30px;
 }
 
 .how-it-works h2 {
 	padding-bottom: 0;
 }
 
-/*-----create Survey page-----*/
+/*-----create Survey / answer survey-----*/
 
-.survey-form {
+.survey-form,
+.signup-form {
 	margin: auto;
 	width: 90%;
 	max-width: 500px;
+	margin-bottom: 30px
 }
 
 .survey-form input, .survey-form button {
@@ -273,13 +328,16 @@ input[type=text]:focus{
 	width: 100%;
 }
 
-.label,
-.survey-question-label {
+.survey-question {
 	color: #ffffff;
-	text-align: center;
 	width: 100%;
 	display: inline-block;
-	margin-bottom: 5px;
+	margin: 10px 0;
+	padding: 8px 28px;
+	font-weight: 600;
+	font-style: italic;
+	border: solid 2px #ffffff;
+	border-radius: 28px;
 }
 
 .question-input,
@@ -317,6 +375,8 @@ input[type=text]:focus{
 	width: 100%;
 }
 
+/*-----link------*/
+
 #heading a {
 	color: #ffffff;
 	width: 90%;
@@ -347,7 +407,6 @@ input[type=text]:focus{
 	text-align: left;
 	margin: 0px;
 	vertical-align: middle;
-
 }
 
 .answer {
@@ -355,11 +414,6 @@ input[type=text]:focus{
 	font-weight: 700;
 	border-radius: 0.2em;
 	margin-bottom: 10px;
-
-
-
-
-
 }
 
 #CopyBtn {
@@ -369,7 +423,6 @@ input[type=text]:focus{
 }
 
 .rainbow {
-
 	background-image: -webkit-gradient(linear, left center, right center, color-stop(0, rgb(183, 215, 15)), color-stop(0.15, rgb(255, 223, 0)));
 	background-image: gradient(linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f));
 	color: transparent;
@@ -411,6 +464,25 @@ input[type=text]:focus{
 	display: none;
 }
 
+/*-----signup-----*/
+
+.signup-form input {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.alternative-signup button{
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.alternative-signup button img {
+	height: 15px;
+	vertical-align: middle;
+	margin-right: 20px;
+}
+
 /*-----responsive------*/
 
 @media only screen and (min-width: 540px) {
@@ -425,12 +497,27 @@ input[type=text]:focus{
 	
 }
 
-@media only screen and (min-width:1000px) {
-
-	
-}
-
 @media only screen and (max-width:425px){
+	
+	.logo {
+		display: block;
+		text-align: center;
+	}
+	
+	.nav {
+		text-align: center;
+		float: none;
+		margin-top: 10px;
+		display: flex;
+	}
+	
+	.nav a {
+		flex: auto;
+	}
+	
+	.nav a button {
+		width: 95%;
+	}	
 	
 	.footer {
 		display: block;
@@ -439,5 +526,6 @@ input[type=text]:focus{
 	.footer-logo {
 		margin-bottom: 10px;
 		display: block;
+		text-align: center;
 	}
 }
