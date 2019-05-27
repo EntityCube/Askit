@@ -188,6 +188,7 @@ input[type=password]:focus {
 .footer a:hover {
 	color: var(--pink);
 	background: -webkit-linear-gradient(30deg, var(--pink), var(--orange));
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	
