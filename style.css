@@ -43,7 +43,7 @@ a {
 }
 
 a:hover {
-	text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+	text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
 }
 
 a:active {
@@ -93,7 +93,7 @@ button:hover,
 input[type=submit]:hover,
 button:focus,
 input[type=submit]:focus {
-	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
 }
 
 input[type=text],
@@ -120,6 +120,7 @@ inuput[type=password]:active,
 input[type=password]:focus {
 	background: rgba(0, 0, 0, 0.5);
 }
+
 /*-----header-----*/
 
 .header {
@@ -137,14 +138,6 @@ input[type=password]:focus {
 	letter-spacing: 2px;
 	display: table-cell;
 	vertical-align: middle;
-}
-
-.logo:hover {
-	text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-}
-
-.logo:active {
-	transform: scale(.95);
 }
 
 .nav {
@@ -242,6 +235,7 @@ input[type=password]:focus {
 
 .tip {
 	width: 90%;
+	max-width: 500px;
 	margin: auto;
 	background: rgba(0, 0, 0, 0.2);
 	border-radius: 10px;
