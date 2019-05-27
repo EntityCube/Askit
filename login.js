@@ -29,6 +29,7 @@ btnLogin.addEventListener('click', e => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser)
+        window.location.href = window.location.href = "/"
     } else {
         console.log('not logged in')
     }

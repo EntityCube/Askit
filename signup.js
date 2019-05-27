@@ -11,18 +11,51 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// verify input
 
-function verifyInput() {
-
-}
 
 
 //get elements
 
+txtname = document.getElementById("name");
 txtEmail = document.getElementById("email");
 txtPassword = document.getElementById("password")
+txtPassword2 = document.getElementById("password2")
 btnSignUp = document.getElementById("btnSignUp")
+
+// sign out when page load
+firebase.auth().signOut()
+
+// verify input
+
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+
+// test in order
+function verifyInput() {
+    if (txtname.value == "") {
+        alert("empty name")
+    } else
+    if (txtEmail.value == "") {
+        alert("empty email")
+    } else if (!validateEmail(txtEmail.value)) {
+        alert("invalid gmail")
+    } else if (txtPassword.value == "") {
+        alert("empty password")
+    } else if (txtPassword.value.length < 6) {
+        alert("weak password use atleast 6 characters")
+    } else if (txtPassword2.value == "") {
+        alert("confirm password by typing again in next input")
+    } else if (txtPassword.value != txtPassword2.value) {
+        alert("password not matching")
+    } else {
+        return true
+    }
+}
+
+
+// creating
 
 btnSignUp.addEventListener('click', e => {
     if (verifyInput()) {
@@ -32,8 +65,7 @@ btnSignUp.addEventListener('click', e => {
 
         const promise = auth.createUserWithEmailAndPassword(email, pass);
         promise.catch(e => console.log(e.message))
-    } else {
-        alert("bad data")
+
     }
 
 
@@ -41,10 +73,13 @@ btnSignUp.addEventListener('click', e => {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        firebaseUser.displayName = "Shabil"
+        firebase.database().ref().child("Users").child(firebaseUser.uid).set([txtname.value, firebaseUser.email, txtPassword.value])
         console.log(firebaseUser)
         console.log(firebaseUser.email)
+        console.log(firebaseUser.uid)
+
         window.location.href = window.location.href = "/"
+
     } else {
         console.log('not logged in')
     }
