@@ -28,7 +28,7 @@ var createCookie = function (name, value, days) {
 if (getCookie('data') != "") {
 
     cookie_Data = getCookie('data')
-    document.getElementById("Last_Results_Popup_Box").style.display = "block"
+    //document.getElementById("Last_Results_Popup_Box").style.display = "block"
     //createCookie('data', '', 1000)
 
 }
@@ -39,4 +39,36 @@ function closeLastResultsPopupBox() {
 
 function openLastResults() {
     window.location.href = window.location.href = "/results.html#" + cookie_Data
+}
+
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyCNchpc1VOQO9RRuY_LRvb-eCbzK6Uva7E",
+    authDomain: "askit-2f176.firebaseapp.com",
+    databaseURL: "https://askit-2f176.firebaseio.com",
+    projectId: "askit-2f176",
+    storageBucket: "askit-2f176.appspot.com",
+    messagingSenderId: "653490212793",
+    appId: "1:653490212793:web:6c97202ffc216578"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        console.log(firebaseUser)
+        document.getElementById("accountButtons").innerHTML = `<button class="
+        btn - outline " onclick="logout()">Logout</button>`
+    } else {
+        console.log('not logged in')
+        document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
+        <a href="login.html"><button class="btn-outline">Sign In</button></a>`
+    }
+})
+
+function logout() {
+    console.log("logged out")
+    firebase.auth().signOut()
 }

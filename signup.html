@@ -23,30 +23,32 @@
 		<h2 id="heading">Create Your Account</h2>
 
 		<div class="signup-form">
-			
-			<input type="text" placeholder="Your Name">
-			<input type="email" placeholder="Your email">
-			<input type="password" placeholder="New password">
-			<input type="password" placeholder="Conform password">
-			<input type="submit" value="Create Account">
+
+			<input id="name" type="text" placeholder="Your Name">
+			<input id="email" type="email" placeholder="Your email">
+			<input id="password" type="password" placeholder="New password">
+			<input id="password2" type="password" placeholder="Confirm password">
+			<input id="btnSignUp" type="submit" value="Create Account">
 
 			<p>Already have an Account? <a href="login.html">Login</a></p>
-			
-			<div class="seperator"><p>OR</p></div>
-			
+
+			<div class="seperator">
+				<p>OR</p>
+			</div>
+
 			<div class="alternative-signup">
 				<button><span><img src="/img/google.svg"></span>Login with Google</button>
 				<button><span><img src="/img/instagram.svg"></span>Login with Instagram</button>
-				<button><span><img src="/img/facebook.svg"></span>Login with 
-				Facebook</button>
+				<button><span><img src="/img/facebook.svg"></span>Login with
+					Facebook</button>
 			</div>
-			
+
 		</div>
-			
+
 		<div class="tip">
 			<p>We won't share you information with anyone. Its only for keeping track of your surveys and answers.</p>
 		</div>
-		
+
 	</div>
 
 	<div class="footer">
@@ -66,8 +68,7 @@
 
 </body>
 <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
-<script src="cs-db.js"></script>
-<script src="cs-script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-auth.js"></script>
+<script src="signup.js"></script>
 
 </html>
