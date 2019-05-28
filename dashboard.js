@@ -39,7 +39,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     //console.log(key + " -> " + data[key]);
                     console.log(key);
                     list.innerHTML += `<a style="border:3px solid white; margin:2px; padding:10px ; display:inline-block" href="https://askit.netlify.com/results#` + key + `">` + key + `</a>`
-
                 }
             }
 
