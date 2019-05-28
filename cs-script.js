@@ -11,6 +11,7 @@ Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Copy_Link = document.getElementById("CopyBtn")
 
+
 //Adding Event listener (Add Question, Submit, Create Survey)
 Btn_Submit.addEventListener("click", Submit)
 Btn_Create_Survey.addEventListener("click", CreateSurvey)
@@ -163,7 +164,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         console.log(firebaseUser)
         document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
-        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => username = snap.val()[0])
+        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
+            console.log(snap.val())
+            username = snap.val()[0]
+            console.log("enabled")
+            Btn_Submit.disabled = false
+        })
+
         userid = firebaseUser.uid
 
     } else {
