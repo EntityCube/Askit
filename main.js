@@ -59,7 +59,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser)
-        document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
+        document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
     } else {
         console.log('not logged in')

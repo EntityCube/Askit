@@ -143,7 +143,7 @@ function showKey(code) {
     results_url = "https://askit.netlify.com/results.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
 
-    firebase.database().ref().child("Users").child(userid).child("surveys").push(code)
+    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set(Date())
     //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
 }
 
@@ -162,7 +162,7 @@ function hideAll() {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         console.log(firebaseUser)
-        document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
+        document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
             console.log(snap.val())
