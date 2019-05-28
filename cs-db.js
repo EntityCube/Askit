@@ -19,12 +19,18 @@ const dbRefQuestions = firebase.database().ref();
 
 
 function storeQuestions(storedata) {
-  //post = dbRefQuestions.push(storedata)
-  post = dbRefQuestions.push()
-  firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', function () {
-    firebase.database().ref().child(post.key).child("questions").set(storedata)
+
+  if (typeof username !== "undefined") {
+    //variable exists
+    //post = dbRefQuestions.push(storedata)
+    post = dbRefQuestions.push()
     firebase.database().ref().child(post.key).child("creator").set(username)
+    firebase.database().ref().child(post.key).child("questions").set(storedata)
 
     showKey(post.key)
-  })
+
+  } else {
+    setTimeout(storedata, 250);
+  }
+
 }
