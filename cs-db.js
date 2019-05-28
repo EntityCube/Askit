@@ -30,7 +30,7 @@ function storeQuestions(storedata) {
     showKey(post.key)
 
   } else {
-    setTimeout(storedata, 250);
+    setTimeout(storeQuestions, 250);
   }
 
 }
