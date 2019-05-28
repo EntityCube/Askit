@@ -51,3 +51,21 @@ function hideAll() {
   Btn_Submit.style.display = "none"
   Input_Attended_User_Name.style.display = "none"
 }
+
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+  if (firebaseUser) {
+    console.log(firebaseUser)
+    document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
+        <button class="btn-outline" onclick="logout()">Logout</button>`
+  } else {
+    console.log('not logged in')
+    document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
+        <a href="login.html"><button class="btn-outline">Sign In</button></a>`
+  }
+})
+
+function logout() {
+  console.log("logged out")
+  firebase.auth().signOut()
+}
