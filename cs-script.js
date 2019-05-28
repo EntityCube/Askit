@@ -93,8 +93,9 @@ function Submit() {
     if (Questions.length == false) {
         alert("Add atleast one question before submitting.")
     } else {
-        Box_Submit.style.display = "block"
-        Box_Submit_Container.style.display = "block"
+        Box_Submit.style.display = "none"
+        Box_Submit_Container.style.display = "none"
+        storeQuestions(Questions)
 
         var divsToHide = document.getElementsByClassName("step");
         for (var i = 0; i < divsToHide.length; i++) {
@@ -140,7 +141,7 @@ function showKey(code) {
     survey_url = "https://askit.netlify.com/survey.html#" + code
     results_url = "https://askit.netlify.com/results.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
-    Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
+    //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
 }
 
 function hideAll() {
@@ -152,4 +153,30 @@ function hideAll() {
     Box_Submit.style.display = "none"
     Btn_Create_Survey.style.display = "none"
     Input_Survey_Topic.style.display = "none"
+}
+
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        console.log(firebaseUser)
+        document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
+        <button class="btn-outline" onclick="logout()">Logout</button>`
+
+        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => username = snap.val()[0])
+
+    } else {
+        console.log('not logged in')
+        document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
+        <a href="login.html"><button class="btn-outline">Sign In</button></a>`
+
+        alert("No Account Signed In")
+        Btn_Add_Question.disabled = "true"
+        Btn_Submit.disabled = "true"
+        Input_Question.disabled = "true"
+    }
+})
+
+function logout() {
+    console.log("logged out")
+    firebase.auth().signOut()
 }

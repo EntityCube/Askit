@@ -19,10 +19,10 @@ const dbRefQuestions = firebase.database().ref();
 
 
 function storeQuestions(storedata) {
-    //post = dbRefQuestions.push(storedata)
-    post = dbRefQuestions.push()
-    firebase.database().ref().child(post.key).child("questions").set(storedata)
-    firebase.database().ref().child(post.key).child("creator").set(Input_Survey_Topic.value)
+  //post = dbRefQuestions.push(storedata)
+  post = dbRefQuestions.push()
+  firebase.database().ref().child(post.key).child("questions").set(storedata)
+  firebase.database().ref().child(post.key).child("creator").set(username)
 
-    showKey(post.key)
+  showKey(post.key)
 }

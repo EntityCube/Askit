@@ -73,13 +73,13 @@ btnSignUp.addEventListener('click', e => {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        firebase.database().ref().child("Users").child(firebaseUser.uid).set([txtname.value, firebaseUser.email, txtPassword.value])
-        console.log(firebaseUser)
-        console.log(firebaseUser.email)
-        console.log(firebaseUser.uid)
-
-        window.location.href = window.location.href = "/"
-
+        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").set([txtname.value, firebaseUser.email, txtPassword.value], function (error) {
+            if (error) {
+                console.log("Data could not be saved." + error);
+            } else {
+                window.location.href = "/"
+            }
+        })
     } else {
         console.log('not logged in')
     }
