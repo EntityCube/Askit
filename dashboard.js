@@ -28,11 +28,15 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
             console.log(snap.val())
-            var p = snap.val()
+            var data = snap.val()
 
-            for (var key in p) {
-                if (p.hasOwnProperty(key)) {
-                    //console.log(key + " -> " + p[key]);
+            if (data == null) {
+                list.innerHTML = "<h2>you have no surveys</h2>"
+            }
+
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    //console.log(key + " -> " + data[key]);
                     console.log(key);
                     list.innerHTML += `<a style="border:3px solid white; margin:2px; padding:10px ; display:inline-block" href="https://askit.netlify.com/survey#` + key + `">` + key + `</a>`
 
