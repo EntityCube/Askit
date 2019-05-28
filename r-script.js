@@ -97,9 +97,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Create Buttons
-function createButtons() {
-    document.getElementById("surveyLink").innerHTML = " <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Survey Link</button> "
-}
+//function createButtons() {
+//  document.getElementById("surveyLink").innerHTML = " <button style='margin-bottom:35px' onclick='CopyToClipboard()'>Copy Survey Link</button> "
+// }
 
 
 

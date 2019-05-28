@@ -184,14 +184,14 @@ input[type=password]:focus {
 	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	
+
 }
 
 .footer-logo {
-	float: none;	
+	float: none;
 }
 
-.footer ul li:first-child{
+.footer ul li:first-child {
 	margin-bottom: 5px;
 }
 
@@ -200,7 +200,7 @@ input[type=password]:focus {
 .step {
 	width: 90%;
 	max-width: 500px;
-	margin:20px auto;
+	margin: 20px auto;
 	border-radius: 20px;
 	display: flex;
 	text-align: left;
@@ -318,7 +318,8 @@ input[type=password]:focus {
 	margin-bottom: 30px
 }
 
-.survey-form input, .survey-form button {
+.survey-form input,
+.survey-form button {
 	margin-bottom: 10px;
 	width: 100%;
 }
@@ -388,6 +389,21 @@ input[type=password]:focus {
 
 #heading a:active {
 	transform: none;
+}
+
+/*-----dashboard page-----*/
+
+.surveys-listing-container {
+	text-align: center;
+
+}
+
+.surveys-listing {
+	display: inline-block;
+	border: 3px solid white;
+	margin: 2px;
+	padding: 10px;
+	color: rgb(249, 252, 64);
 }
 
 /*-----result page-----*/
@@ -466,7 +482,7 @@ input[type=password]:focus {
 	margin-bottom: 10px;
 }
 
-.alternative-signup button{
+.alternative-signup button {
 	display: block;
 	width: 100%;
 	margin-bottom: 10px;
@@ -481,43 +497,43 @@ input[type=password]:focus {
 /*-----responsive------*/
 
 @media only screen and (min-width: 540px) {
-	
+
 	.header {
 		padding: 30px;
 	}
-	
+
 	.tagline {
 		margin-top: 10px;
 	}
-	
+
 }
 
-@media only screen and (max-width:425px){
-	
+@media only screen and (max-width:425px) {
+
 	.logo {
 		display: block;
 		text-align: center;
 	}
-	
+
 	.nav {
 		text-align: center;
 		float: none;
 		margin-top: 10px;
 		display: flex;
 	}
-	
+
 	.nav a {
 		flex: auto;
 	}
-	
+
 	.nav a button {
 		width: 95%;
-	}	
-	
+	}
+
 	.footer {
 		display: block;
 	}
-	
+
 	.footer-logo {
 		margin-bottom: 10px;
 		display: block;
