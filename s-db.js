@@ -1,5 +1,5 @@
 dbDataLocation = "demo"
-
+acname = ""
 dbDataLocation = window.location.hash.substring(1)
 
 data = []
@@ -55,9 +55,16 @@ function hideAll() {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
+    firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => acname = snap.val()[0])
     console.log(firebaseUser)
     document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
+
+
+
+    document.getElementById("answering-user-name-input").style.display = "none"
+    document.getElementById("answer-submit-button").style.marginTop = "0px"
+
   } else {
     console.log('not logged in')
     document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
@@ -68,4 +75,5 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 function logout() {
   console.log("logged out")
   firebase.auth().signOut()
+  acname = ""
 }
