@@ -1,5 +1,6 @@
 dbDataLocation = "demo"
 acname = ""
+
 dbDataLocation = window.location.hash.substring(1)
 
 data = []
@@ -35,6 +36,14 @@ creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML
 function SendAnswersToDB(username, result) {
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).set(username)
   firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
+  firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("time").set(Date())
+
+  if (acname != "") {
+    firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("account").set("true")
+  } else {
+    firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("account").set("false")
+  }
+
   hideAll()
   Label_Question_num.innerHTML = "Submitted"
   setTimeout(function () {
@@ -59,7 +68,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     console.log(firebaseUser)
     document.getElementById("accountButtons").innerHTML = `<a href="results.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
-
 
 
     document.getElementById("answering-user-name-input").style.display = "none"
