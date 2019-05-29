@@ -111,7 +111,7 @@ function getRandomInteger(min, max) {
 }
 
 // Get Survey Questions
-const QuestionsRef = firebase.database().ref().child(dbDataLocation).child('questions');
+const QuestionsRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('questions');
 QuestionsRef.on('value', snap => Questions = snap.val())
 "</p><p class='answer'>"
 QuestionsRef.on('value', function () {
@@ -122,7 +122,7 @@ QuestionsRef.on('value', function () {
 })
 
 // Get Survey attended users
-const AttendedUsersRef = firebase.database().ref().child(dbDataLocation).child('Results');
+const AttendedUsersRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('Results');
 AttendedUsersRef.on('value', snap => AttendedUsers = snap.val())
 AttendedUsersRef.on('value', function () {
     if (AttendedUsers !== null) {
@@ -144,7 +144,7 @@ AttendedUsersRef.on('value', function () {
 
     } else {
         NameMension.innerHTML = "<span style='font-weight:10'>No Results Right Now , <br> Share <a href='https://askit.netlify.com/survey.html#" + dbDataLocation + "'>this</a> url to your friends to see results</span>";
-        createButtons()
+        //  createButtons()
     }
 
 })
@@ -210,7 +210,7 @@ function MensionNames() {
         Users[j] = property
         NameMension.innerHTML = "Survey Results"
         //NameMension.innerHTML = NameMension.innerHTML + /*" <span style='background:linear-gradient( 45deg ," + bgColor + "," + bgColor2 + ");border-radius:0.2em;padding:1px'>" */ " <span style='padding:1px'>" + property + "</span>  ,"
-        const AnswersRef = firebase.database().ref().child(dbDataLocation).child('Results').child(property).child('answers')
+        const AnswersRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('Results').child(property).child('answers')
         AnswersRef.on('value', snap => answerData[j] = snap.val())
         AnswersRef.on('value', function () {
             console.log("hello")
