@@ -17,7 +17,22 @@ list = document.getElementById("surveys-listing-container")
 
 
 
+function CopyToClipboard(value) {
+    const el = document.createElement('textarea');
+    el.value = "https://askit.netlify.com/survey#" + value
+    el.setAttribute('readonly', '');
+    el.style.position = 'absolute';
+    el.style.left = '-9999px';
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
 
+}
+
+function deleteSurvey(value) {
+    firebase.database().ref().child("PublicSurveys").child(value).set(null)
+}
 
 
 
@@ -40,10 +55,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     console.log(data[key])
 
 
-                    var date = new Date(data[key])
+                    var date = new Date(data[key][0])
                     var time = date.toLocaleTimeString();
                     var day = date.toLocaleDateString();
-                    list.innerHTML += `<div class="surveys-listing"><a href="https://askit.netlify.com/results#` + key + `">` + key + `</a> <br> ` + time + `<br>` + day + `</div>`
+                    list.innerHTML += `<div class="surveys-listing"><a href="https://askit.netlify.com/results#` + key + `">` + `<button>` + data[key][1] + `</button>` + `</a> <br> ` + time + `<br>` + day + `<br>` + `<button onclick="CopyToClipboard('` + key + `')">` + "Copy url" + `</button>` + `<br>` + `<button onclick="deleteSurvey('` + key + `')">` + "Delete Survey" + `</button>` + `</div>`
                 }
             }
 

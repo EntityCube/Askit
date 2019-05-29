@@ -395,16 +395,23 @@ input[type=password]:focus {
 /*-----dashboard page-----*/
 
 .surveys-listing-container {
-	text-align: center;
-
+	text-align: center
 }
 
 .surveys-listing {
+	background: linear-gradient(30deg, #f5feff, rgb(255, 255, 255));
 	display: inline-block;
-	border: 3px solid white;
-	margin: 2px;
-	padding: 10px;
-	color: rgb(249, 252, 64);
+	border: 1px solid #000000;
+	border-bottom-right-radius: 15px;
+	margin: 3px;
+	padding: 5px;
+	color: rgb(34, 32, 32);
+}
+
+.surveys-listing * {
+	background: linear-gradient(30deg, #383a3a, rgb(236, 57, 57));
+	margin: 3px;
+	color: rgb(255, 255, 255);
 }
 
 /*-----result page-----*/

@@ -94,9 +94,9 @@ function Submit() {
     if (Questions.length == false) {
         alert("Add atleast one question before submitting.")
     } else {
-        Box_Submit.style.display = "none"
-        Box_Submit_Container.style.display = "none"
-        storeQuestions(Questions)
+        Box_Submit.style.display = "block"
+        Box_Submit_Container.style.display = "block"
+        //storeQuestions(Questions)
 
         var divsToHide = document.getElementsByClassName("step");
         for (var i = 0; i < divsToHide.length; i++) {
@@ -143,7 +143,8 @@ function showKey(code) {
     results_url = "https://askit.netlify.com/results.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
 
-    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set([Date(), "topic"])
+    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set([Date(), Input_Survey_Topic.value])
+
     //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
 }
 
