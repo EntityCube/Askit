@@ -47,6 +47,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             console.log(snap.val())
             var data = snap.val()
 
+            return
+
             if (data == null) {
                 list.innerHTML = "<h2>you have no surveys</h2>"
             }
