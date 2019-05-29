@@ -23,10 +23,9 @@ list = document.getElementById("surveys-listing-container")
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log(firebaseUser)
         document.getElementById("accountButtons").innerHTML = `<button class="btn-outline" onclick="logout()">Logout</button>`
-
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
+            list.innerHTML = ""
             console.log(snap.val())
             var data = snap.val()
 
@@ -38,6 +37,20 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 if (data.hasOwnProperty(key)) {
                     //console.log(key + " -> " + data[key]);
                     console.log(key);
+                    console.log(data[key])
+
+
+                    var obj = JSON.parse(str);
+
+                    Object.keys(obj.return).forEach((key) => {
+                        obj.return[key] = obj.return[key][0]['$'];
+                    });
+
+                    console.log(obj)
+
+
+
+
                     var date = new Date(data[key])
                     var time = date.toLocaleTimeString();
                     var day = date.toLocaleDateString();

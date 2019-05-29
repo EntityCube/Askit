@@ -18,30 +18,29 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-const dbRefObject = firebase.database().ref().child('object');
 
 
 
-const dataRef = firebase.database().ref().child(dbDataLocation).child('questions');
+const dataRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('questions');
 dataRef.on('value', snap => data = snap.val())
 dataRef.on('value', function () {
   Label_Question.innerHTML = data[0]
   Btn_Next.disabled = false;
 })
 
-const creatorRef = firebase.database().ref().child(dbDataLocation).child('creator');
+const creatorRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('creator');
 creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val())
 
 
 function SendAnswersToDB(username, result) {
-  firebase.database().ref().child(dbDataLocation).child("Results").child(username).set(username)
-  firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("answers").set(result)
-  firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("time").set(Date())
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).set(username)
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("answers").set(result)
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("time").set(Date())
 
   if (acname != "") {
-    firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("account").set("true")
+    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("true")
   } else {
-    firebase.database().ref().child(dbDataLocation).child("Results").child(username).child("account").set("false")
+    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("false")
   }
 
   hideAll()

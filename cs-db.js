@@ -23,8 +23,8 @@ function storeQuestions(storedata) {
   //post = dbRefQuestions.push(storedata)
   console.log("redo")
   post = dbRefQuestions.push()
-  firebase.database().ref().child(post.key).child("creator").set(username)
-  firebase.database().ref().child(post.key).child("questions").set(storedata)
+  firebase.database().ref().child("PublicSurveys").child(post.key).child("creator").set(username)
+  firebase.database().ref().child("PublicSurveys").child(post.key).child(post.key).child("questions").set(storedata)
 
   showKey(post.key)
 
