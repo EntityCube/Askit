@@ -22,8 +22,17 @@ firebase.initializeApp(firebaseConfig);
 
 
 const dataRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('questions');
+/*
 dataRef.on('value', snap => data = snap.val())
 dataRef.on('value', function () {
+  console.log(data)
+  Label_Question.innerHTML = data[0]
+  Btn_Next.disabled = false;
+}) 
+*/
+dataRef.on('value', snap => {
+  data = snap.val()
+  console.log(data)
   Label_Question.innerHTML = data[0]
   Btn_Next.disabled = false;
 })

@@ -293,6 +293,7 @@ input[type=password]:focus {
 .about h2 {
 	color: #f50669;
 	background: -webkit-linear-gradient(30deg, var(--pink), var(--orange));
+	background-clip: text;
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
