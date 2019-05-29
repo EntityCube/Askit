@@ -43,11 +43,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html" style="visibility:hidden"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
+
+            return
+
             list.innerHTML = ""
             console.log(snap.val())
             var data = snap.val()
-
-            return
 
             if (data == null) {
                 list.innerHTML = "<h2>you have no surveys</h2>"
