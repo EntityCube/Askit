@@ -43,7 +43,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html" style="visibility:hidden"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
-            list.innerHTML = ""
+            //list.innerHTML = ""
             console.log(snap.val())
             var data = snap.val()
 
@@ -59,7 +59,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 
                     var date = new Date(data[key][0])
-                    var time = date.toLocaleTimeString();
+
+                    var options = {
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                    };
+
+                    var time = date.toLocaleTimeString('en-US', options);
                     var day = date.toLocaleDateString();
                     list.innerHTML += `<div class="surveys-listing"><a href="https://askit.netlify.com/results#` + key + `">` + `<button>` + data[key][1] + `</button>` + `</a> <br> ` + time + `<br>` + day + `<br>` + `<button onclick="CopyToClipboard('` + key + `')">` + "Copy url" + `</button>` + `<br>` + `<button onclick="deleteSurvey('` + key + `')">` + "Delete Survey" + `</button>` + `</div>`
                 }
