@@ -1,5 +1,6 @@
 dbDataLocation = "demo"
 acname = ""
+checkUser = true
 
 dbDataLocation = window.location.hash.substring(1)
 
@@ -95,10 +96,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       acname = snap.val()[0]
 
       firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(acname).child("account").on('value', snap => {
-        if (snap.val() == "true") {
+        if (snap.val() == "true" && checkUser == true) {
           alert("you have already attempted this survey")
           Btn_Next.disabled = true
           Input_Answer.disabled = true
+        } else {
+          checkUser = false
         }
       })
 
