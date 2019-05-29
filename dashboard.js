@@ -67,7 +67,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     };
 
                     var time = date.toLocaleTimeString('en-US', options);
-                    var day = date.toLocaleDateString();
+                    var day = date.toLocaleDateString('en-GB', {
+                        timeZone: 'UTC'
+                    });
                     list.innerHTML += `<div class="surveys-listing"><a href="https://askit.netlify.com/results#` + key + `">` + `<button>` + data[key][1] + `</button>` + `</a> <br> ` + time + `<br>` + day + `<br>` + `<button onclick="CopyToClipboard('` + key + `')">` + "Copy url" + `</button>` + `<br>` + `<button onclick="deleteSurvey('` + key + `')">` + "Delete Survey" + `</button>` + `</div>`
                 }
             }
