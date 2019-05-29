@@ -97,6 +97,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
       firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(acname).child("account").on('value', snap => {
         if (snap.val() == "true") {
           alert("you have already attempted this survey")
+          Btn_Next.disabled = true
+          Input_Answer.disabled = true
         }
       })
 
