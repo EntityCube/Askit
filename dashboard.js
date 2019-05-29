@@ -32,13 +32,16 @@ function CopyToClipboard(value) {
 
 function deleteSurvey(value) {
     firebase.database().ref().child("PublicSurveys").child(value).set(null)
+    firebase.database().ref().child("Users").child(userId).child("surveys").child(value).set(null)
 }
 
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        document.getElementById("accountButtons").innerHTML = `<button class="btn-outline" onclick="logout()">Logout</button>`
+        userId = firebaseUser.uid
+        document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html" style="visibility:hidden"><button>Results</button></a>
+        <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
             list.innerHTML = ""
             console.log(snap.val())
