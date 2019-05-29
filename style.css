@@ -402,9 +402,9 @@ input[type=password]:focus {
 	background: linear-gradient(30deg, #f5feff, rgb(255, 255, 255));
 	display: inline-block;
 	border: 1px solid #000000;
-	border-bottom-right-radius: 15px;
-	margin: 3px;
-	padding: 5px;
+	border-radius: 20px;
+	margin: 5px;
+	padding: 1px;
 	color: rgb(34, 32, 32);
 }
 
