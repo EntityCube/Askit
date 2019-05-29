@@ -23,7 +23,7 @@ txtPassword2 = document.getElementById("password2")
 btnSignUp = document.getElementById("btnSignUp")
 
 // sign out when page load
-firebase.auth().signOut()
+// firebase.auth().signOut()
 
 // verify input
 
