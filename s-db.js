@@ -91,17 +91,31 @@ function hideAll() {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
-    firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => acname = snap.val()[0])
-    console.log(firebaseUser)
+    firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
+      acname = snap.val()[0]
+
+      firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(acname).child("account").on('value', snap => {
+        if (snap.val() == "true") {
+          alert("you have already attempted this survey")
+        }
+      })
+
+    })
+
+
+
+
     document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
-
 
     document.getElementById("answering-user-name-input").style.display = "none"
     document.getElementById("answer-submit-button").style.marginTop = "0px"
 
   } else {
     console.log('not logged in')
+    Btn_Next.disabled = true
+    Input_Answer.disabled = true
+    alert("no account")
     document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`
   }

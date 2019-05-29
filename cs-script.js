@@ -11,7 +11,7 @@ Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Copy_Link = document.getElementById("CopyBtn")
 
-
+Btn_Submit.disabled = true
 //Adding Event listener (Add Question, Submit, Create Survey)
 Btn_Submit.addEventListener("click", Submit)
 Btn_Create_Survey.addEventListener("click", CreateSurvey)
