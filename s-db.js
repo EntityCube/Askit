@@ -50,16 +50,32 @@ function SendAnswersToDB(username, result) {
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("time").set(Date())
 
   if (acname != "") {
-    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("true")
+    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("true", function (error) {
+      if (error) {
+        console.log("Data could not be saved." + error);
+      } else {
+        setTimeout(function () {
+          window.location.href = "/"
+        }, 500)
+      }
+    })
+
+
   } else {
-    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("false")
+    firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("false", function (error) {
+      if (error) {
+        console.log("Data could not be saved." + error);
+      } else {
+        setTimeout(function () {
+          window.location.href = "/"
+        }, 500)
+      }
+    })
   }
 
   hideAll()
   Label_Question_num.innerHTML = "Submitted"
-  setTimeout(function () {
-    window.location.href = "/"
-  }, 300)
+
 }
 
 function hideAll() {
