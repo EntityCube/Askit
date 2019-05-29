@@ -32,7 +32,10 @@ dataRef.on('value', function () {
 */
 dataRef.on('value', snap => {
   data = snap.val()
-  console.log(data)
+  if (data == null) {
+    alert("you are trying to find a survey that has been removed")
+    return
+  }
   Label_Question.innerHTML = data[0]
   Btn_Next.disabled = false;
 })

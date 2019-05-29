@@ -40,17 +40,6 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     console.log(data[key])
 
 
-                    var obj = JSON.parse(str);
-
-                    Object.keys(obj.return).forEach((key) => {
-                        obj.return[key] = obj.return[key][0]['$'];
-                    });
-
-                    console.log(obj)
-
-
-
-
                     var date = new Date(data[key])
                     var time = date.toLocaleTimeString();
                     var day = date.toLocaleDateString();
