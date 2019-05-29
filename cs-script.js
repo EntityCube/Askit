@@ -143,7 +143,7 @@ function showKey(code) {
     results_url = "https://askit.netlify.com/results.html#" + code
     Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
 
-    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set(Date())
+    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).child(Date()).set("topic")
     //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
 }
 
