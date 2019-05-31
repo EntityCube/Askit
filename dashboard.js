@@ -54,6 +54,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                 list.innerHTML += "<h2>you have no surveys</h2>"
             }
 
+
             for (var key in data) {
                 if (data.hasOwnProperty(key)) {
                     //console.log(key + " -> " + data[key]);
