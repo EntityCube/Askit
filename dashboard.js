@@ -46,13 +46,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
             //return
 
-            list.innerHTML = ""
+            //list.innerHTML = ""
             console.log(snap.val())
             var data = snap.val()
 
-            //if (data == null) {
-            //       list.innerHTML = "<h2>you have no surveys</h2>"
-            //  }
+            if (data == null) {
+                list.innerHTML += "<h2>you have no surveys</h2>"
+            }
 
             for (var key in data) {
                 if (data.hasOwnProperty(key)) {
