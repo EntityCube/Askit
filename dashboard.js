@@ -44,7 +44,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("surveys").on('value', snap => {
 
-            return
+            //return
 
             list.innerHTML = ""
             console.log(snap.val())
