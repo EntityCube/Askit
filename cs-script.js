@@ -126,12 +126,7 @@ function CopyToClipboard() {
     el.style.left = '-9999px';
     document.body.appendChild(el);
     el.select();
-    try {
-        document.execCommand('copy')
-    } catch (error) {
-        alert("err:" + error)
-    }
-
+    document.execCommand('copy')
     document.body.removeChild(el);
     alert("copied")
 
