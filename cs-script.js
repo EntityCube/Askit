@@ -128,11 +128,12 @@ function CopyToClipboard() {
     el.select();
     try {
         document.execCommand('copy')
-        document.body.removeChild(el);
-        alert("copied")
     } catch (error) {
         alert("err:" + error)
     }
+
+    document.body.removeChild(el);
+    alert("copied")
 
 
 }
