@@ -126,18 +126,15 @@ function CopyToClipboard() {
     el.style.left = '-9999px';
     document.body.appendChild(el);
     el.select();
-    document.execCommand('copy'),
-        function (error) {
-            if (error) {
-                console.log("Data could not be saved." + error);
+    try {
+        document.execCommand('copy')
+        document.body.removeChild(el);
+        alert("copied")
+    } catch (error) {
+        alert("err:" + error)
+    }
 
 
-                alert("copied")
-
-                document.body.removeChild(el);
-
-            }
-        }
 }
 
 function showKey(code) {
@@ -198,5 +195,5 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
 function logout() {
     firebase.auth().signOut()
-    window.location.href = "/"
+    window.location.href = window.location.href = "/"
 }
