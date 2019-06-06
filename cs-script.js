@@ -138,64 +138,65 @@ function CopyToClipboard() {
 
             }
         }
+}
 
-    function showKey(code) {
-        createCookie('data', code, 1000)
+function showKey(code) {
+    createCookie('data', code, 1000)
 
-        Box_Submit.style.display = "none"
-        Box_Submit_Container.style.display = "none"
-        hideAll()
-        Btn_Copy_Link.style.display = "block"
+    Box_Submit.style.display = "none"
+    Box_Submit_Container.style.display = "none"
+    hideAll()
+    Btn_Copy_Link.style.display = "block"
 
-        Number_Question.innerHTML = "share this url to your friends"
-        survey_url = "https://askit.netlify.com/survey#" + code
-        results_url = "https://askit.netlify.com/results#" + code
-        Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
+    Number_Question.innerHTML = "share this url to your friends"
+    survey_url = "https://askit.netlify.com/survey#" + code
+    results_url = "https://askit.netlify.com/results#" + code
+    Label_Heading.innerHTML = "<a href=" + survey_url + " target='_blank' >" + survey_url + "</a>"
 
-        firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set([Date(), Input_Survey_Topic.value])
+    firebase.database().ref().child("Users").child(userid).child("surveys").child(code).set([Date(), Input_Survey_Topic.value])
 
-        //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
-    }
+    //Btn_Show_Results.innerHTML = "<a class='show-result-btn-a' href=" + results_url + " target='_blank' >" + " <button> Show Results </button> </a> "
+}
 
-    function hideAll() {
-        Btn_Add_Question.style.display = "none"
-        Btn_Submit.style.display = "none"
-        Box_Submit_Container.style.display = "none"
-        Input_Question.style.display = "none"
-        //Number_Question.style.display = "none"
-        Box_Submit.style.display = "none"
-        Btn_Create_Survey.style.display = "none"
-        Input_Survey_Topic.style.display = "none"
-    }
+function hideAll() {
+    Btn_Add_Question.style.display = "none"
+    Btn_Submit.style.display = "none"
+    Box_Submit_Container.style.display = "none"
+    Input_Question.style.display = "none"
+    //Number_Question.style.display = "none"
+    Box_Submit.style.display = "none"
+    Btn_Create_Survey.style.display = "none"
+    Input_Survey_Topic.style.display = "none"
+}
 
 
-    firebase.auth().onAuthStateChanged(firebaseUser => {
-        if (firebaseUser) {
-            document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
-            firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
-                console.log(snap.val())
-                username = snap.val()[0]
-                console.log("enabled")
-                Btn_Submit.disabled = false
-            })
+        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
+            console.log(snap.val())
+            username = snap.val()[0]
+            console.log("enabled")
+            Btn_Submit.disabled = false
+        })
 
-            userid = firebaseUser.uid
+        userid = firebaseUser.uid
 
-        } else {
+    } else {
 
-            accountSigninSignup.style.display = "block"
-            document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
+        accountSigninSignup.style.display = "block"
+        document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`
-            Btn_Add_Question.disabled = "true"
-            Btn_Submit.disabled = "true"
-            Input_Question.disabled = "true"
+        Btn_Add_Question.disabled = "true"
+        Btn_Submit.disabled = "true"
+        Input_Question.disabled = "true"
 
 
-        }
-    })
-
-    function logout() {
-        firebase.auth().signOut()
-        window.location.href = window.location.href = "/"
     }
+})
+
+function logout() {
+    firebase.auth().signOut()
+    window.location.href = "/"
+}
