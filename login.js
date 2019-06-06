@@ -28,8 +28,12 @@ btnLogin.addEventListener('click', e => {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log(firebaseUser)
-        window.location.href = window.location.href = "/"
+        if (window.location.hash.substring(1) == "cs") {
+            window.location.href = window.location.href = "/create-survey.html"
+
+        } else {
+            window.location.href = window.location.href = "/"
+        }
     } else {
         console.log('not logged in')
     }

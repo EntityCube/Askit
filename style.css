@@ -372,6 +372,25 @@ input[type=password]:focus {
 	width: 100%;
 }
 
+.account-signin-signup {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 13px;
+	margin: 10px;
+	border-radius: 0.5em;
+	text-align: center;
+	width: 75%;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #000003f3;
+
+	display: none;
+}
+
+
 /*-----link------*/
 
 #heading a {

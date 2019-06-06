@@ -77,7 +77,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
             if (error) {
                 console.log("Data could not be saved." + error);
             } else {
-                window.location.href = "/"
+                if (window.location.hash.substring(1) == "cs") {
+                    window.location.href = window.location.href = "/create-survey.html"
+
+                } else {
+                    window.location.href = window.location.href = "/"
+                }
             }
         })
     } else {

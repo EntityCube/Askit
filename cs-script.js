@@ -10,6 +10,7 @@ Input_Survey_Topic = document.getElementById("survey-topic-input")
 Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Copy_Link = document.getElementById("CopyBtn")
+accountSigninSignup = document.getElementById("account-signin-signup")
 
 Btn_Submit.disabled = true
 //Adding Event listener (Add Question, Submit, Create Survey)
@@ -127,6 +128,7 @@ function CopyToClipboard() {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+    alert(el.value)
 
 }
 
@@ -162,7 +164,6 @@ function hideAll() {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        console.log(firebaseUser)
         document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
         <button class="btn-outline" onclick="logout()">Logout</button>`
         firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
@@ -175,18 +176,19 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         userid = firebaseUser.uid
 
     } else {
-        console.log('not logged in')
+
+        accountSigninSignup.style.display = "block"
         document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`
-
-        alert("No Account Signed In")
         Btn_Add_Question.disabled = "true"
         Btn_Submit.disabled = "true"
         Input_Question.disabled = "true"
+
+
     }
 })
 
 function logout() {
-    console.log("logged out")
     firebase.auth().signOut()
+    window.location.href = window.location.href = "/"
 }
