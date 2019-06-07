@@ -487,10 +487,14 @@ input[type=password]:focus {
 /*-----dashboard page-----*/
 
 .surveys-listing-container {
-	text-align: center
+	text-align: center;
+
 }
 
 .surveys-listing {
+	border-radius: 10px;
+	overflow: hidden;
+	perspective: 1px;
 	background: #ffffff;
 	box-shadow: -12px 12px 2px 1px rgba(15, 8, 8, 0.2);
 	display: inline-block;
