@@ -29,10 +29,23 @@ btnLogin.addEventListener('click', e => {
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         if (window.location.hash.substring(1) == "cs") {
-            window.location.href = window.location.href = "/create-survey.html"
 
-        } else {
-            window.location.href = window.location.href = "/"
+            window.location.href = "/create-survey.html"
+
+        } else
+        if (window.location.hash[1] == "-") {
+
+            window.location.href = "/survey.html#" + window.location.hash.substring(1)
+
+        }
+        if (window.location.hash[1] == "d") {
+
+            window.location.href = "/dashboard.html#" + window.location.hash.substring(1)
+
+        } else
+
+        {
+            window.location.href = "/"
         }
     } else {
         console.log('not logged in')

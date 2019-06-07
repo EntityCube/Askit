@@ -1,18 +1,18 @@
 // Linking Buttons (Add Question, Submit), input , Question number , submit box (hidden), survey submit button , survey topic input, survey.html next button, survey answer input
-Btn_Add_Question = document.getElementsByClassName("add-question-button")[0]
-Btn_Submit = document.getElementById("submit-button")
-Input_Question = document.getElementsByClassName("question-input")[0]
-Number_Question = document.getElementsByClassName("label")[0]
-Box_Submit = document.getElementById("submit-box")
-Box_Submit_Container = document.getElementById("pop-up-container")
-Btn_Create_Survey = document.getElementById("create-survey-button")
-Input_Survey_Topic = document.getElementById("survey-topic-input")
-Label_Heading = document.getElementById("heading")
-Btn_Show_Results = document.getElementById("ShowResultsBtn")
-Btn_Copy_Link = document.getElementById("CopyBtn")
-accountSigninSignup = document.getElementById("account-signin-signup")
-copyNotify = document.getElementById("copy-notify")
-popupActionLogout = document.getElementById("popup-action-logout")
+Btn_Add_Question = document.getElementsByClassName("add-question-button")[0];
+Btn_Submit = document.getElementById("submit-button");
+Input_Question = document.getElementsByClassName("question-input")[0];
+Number_Question = document.getElementsByClassName("label")[0];
+Box_Submit = document.getElementById("submit-box");
+Box_Submit_Container = document.getElementById("pop-up-container");
+Btn_Create_Survey = document.getElementById("create-survey-button");
+Input_Survey_Topic = document.getElementById("survey-topic-input");
+Label_Heading = document.getElementById("heading");
+Btn_Show_Results = document.getElementById("ShowResultsBtn");
+Btn_Copy_Link = document.getElementById("CopyBtn");
+accountSigninSignup = document.getElementById("account-signin-signup");
+copyNotify = document.getElementById("copy-notify");
+popupActionLogout = document.getElementById("popup-action-logout");
 
 Btn_Submit.disabled = true
 //Adding Event listener (Add Question, Submit, Create Survey)
@@ -214,16 +214,16 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 })
 
 function logout() {
-    popupActionLogout.style.display = "block"
+    popupActionLogout.style.display = "block";
 }
 
 function logoutNo() {
-    popupActionLogout.style.display = "none"
+    popupActionLogout.style.display = "none";
 }
 
 function logoutYes() {
-    actionLogout = true
-    firebase.auth().signOut()
-    popupActionLogout.style.display = "none"
-    window.location.href = "/"
+    actionLogout = true;
+    firebase.auth().signOut();
+    popupActionLogout.style.display = "none";
+    window.location.href = "/";
 }

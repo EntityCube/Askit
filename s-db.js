@@ -1,6 +1,7 @@
 dbDataLocation = "demo";
 acname = "";
 checkUser = true;
+let actionLogout = false;
 
 dbDataLocation = window.location.hash.substring(1);
 
@@ -46,8 +47,6 @@ creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML
 
 
 function SendAnswersToDB(username, result) {
-
-  alert("hello");
 
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).set(username);
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("answers").set(result);
@@ -100,9 +99,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
       firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(acname).child("account").on('value', snap => {
         if (snap.val() == "true" && checkUser == true) {
-          alert("you have already attempted this survey");
+          popupActionAlreadyAttempted.style.display = "block";
           Btn_Next.disabled = true;
           Input_Answer.disabled = true;
+
+          setTimeout(function () {
+            window.location.href = "/";
+          }, 3000);
 
         } else {
           checkUser = false;
@@ -121,10 +124,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     document.getElementById("answer-submit-button").style.marginTop = "0px";
 
   } else {
+    if (actionLogout == false) {
+      accountSigninSignup.style.display = "block"
+    }
+
     console.log('not logged in');
     Btn_Next.disabled = true;
     Input_Answer.disabled = true;
-    alert("no account");
+
     document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`;
   }

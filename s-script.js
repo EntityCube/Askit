@@ -9,8 +9,18 @@ Box_Answer_Background = document.getElementById("pop-up-container");
 Btn_Submit = document.getElementById("answer-submit-button");
 Input_Attended_User_Name = document.getElementById("answering-user-name-input");
 popupActionLogout = document.getElementById("popup-action-logout");
+accountSigninSignup = document.getElementById("account-signin-signup")
+popupActionAlreadyAttempted = document.getElementById("popup-action-already-attempted")
 
 Btn_Next.disabled = true;
+
+accountSigninSignup.innerHTML = `		Already have account?<br>
+<a href="login.html#` + window.location.hash.substring(1) + `"><button>Sign in</button></a> <br>
+Create an account<br>
+<a href="signup.html#` +
+    window.location.hash.substring(1) +
+    `"><button>Sign Up</button></a>
+`
 
 // Adding Event listeners
 Btn_Next.addEventListener("click", LoadNextQuestion);
@@ -43,8 +53,6 @@ function LoadNextQuestion() {
 
             Input_Answer.value = "";
 
-
-
             if (data.length == answers.length) {
                 Box_Answer_Background.style.display = "block";
                 Box_Answer.style.display = "block";
@@ -66,13 +74,12 @@ function LoadNextQuestion() {
 }
 
 function SubmitAnswers() {
-    alert("hello")
     // Need to upload answers to database
     if (acname == "") {
         if (Input_Attended_User_Name.value != false) {
             SendAnswersToDB(Input_Attended_User_Name.value, answers);
         } else {
-            alert("type your name");
+            alert(" ");
         }
     } else {
         SendAnswersToDB(acname, answers);
@@ -90,7 +97,7 @@ function logoutNo() {
 
 function logoutYes() {
     actionLogout = true;
-    firebase.auth().signOut();
+    firebase.auth().signOut()
     popupActionLogout.style.display = "none";
     window.location.href = "/";
 }

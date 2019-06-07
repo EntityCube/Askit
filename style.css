@@ -430,8 +430,8 @@ input[type=password]:focus {
 .copy-notify {
 	color: white;
 	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
-	padding: 5px;
-	margin: 0px;
+	padding: 10px;
+	margin: 10px;
 	border-radius: 0.5em;
 	text-align: center;
 	position: fixed;
@@ -445,10 +445,22 @@ input[type=password]:focus {
 
 }
 
-/* Error Styling */
+.popup-action-already-attempted {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 5px;
+	margin: 0px;
+	border-radius: 0.5em;
+	text-align: center;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #000000fa;
+	font-size: 0.8em;
+	display: none;
 
-.error {
-	color: #fffc48;
 }
 
 
@@ -479,19 +491,82 @@ input[type=password]:focus {
 }
 
 .surveys-listing {
-	background: linear-gradient(30deg, #f5feff, rgb(255, 255, 255));
+	background: #ffffff;
+	box-shadow: -12px 12px 2px 1px rgba(15, 8, 8, 0.2);
 	display: inline-block;
-	border: 1px solid #000000;
-	border-radius: 20px;
-	margin: 5px;
-	padding: 1px;
+	margin: 0;
+	padding: 0px;
 	color: rgb(34, 32, 32);
+	width: 200px;
 }
 
-.surveys-listing * {
-	background: linear-gradient(30deg, #383a3a, rgb(236, 57, 57));
-	margin: 3px;
-	color: rgb(255, 255, 255);
+.survey-topic {
+	background: linear-gradient(-85deg, rgb(44, 187, 223), rgb(74, 94, 160));
+
+}
+
+.survey-topic-text {
+	margin-top: 0px;
+	padding: 0px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	color: #ffffff;
+	font-size: 2em;
+	font-weight: 500;
+}
+
+/* time and date */
+
+.time-and-date-wrapper {
+
+	margin-top: 0px;
+	display: flex;
+	font-weight: 580;
+
+}
+
+.time {
+	background: #fcfcfc;
+	float: left;
+	width: 50%;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.date {
+	background: #ffffff;
+	float: left;
+	width: 50%;
+	overflow: hidden;
+	padding: 10px;
+}
+
+/* copy and delete */
+.survey-icons {
+	width: 40px;
+	height: 40px;
+}
+
+.copy-and-delete-wrapper {
+	margin-top: 0px;
+	display: flex;
+	height: 60px;
+}
+
+.copy {
+	background: linear-gradient(-85deg, rgb(236, 214, 89), rgb(210, 233, 6));
+	float: left;
+	width: 50%;
+	overflow: hidden;
+	padding: 20px;
+}
+
+.delete {
+	background: linear-gradient(-85deg, rgb(235, 69, 69), rgb(231, 72, 24));
+	float: left;
+	width: 50%;
+	overflow: hidden;
+	padding: 20px;
 }
 
 /*-----result page-----*/

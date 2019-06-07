@@ -27,16 +27,23 @@
 			<!-- design this so i can duplicate this -->
 
 			<div class="surveys-listing">
-				<a><button>Dummy survey title</button></a>
-				<br>
-				4:04 PM
-				<br>
-				5/29/2019
-				<br>
-				<button> Copy url </button>
-				<br>
-				<button>Delete Survey"</button>
+				<div class="survey-topic">
+					<a>
+						<h2 class="survey-topic-text">Dummy survey title</h2>
+					</a>
+				</div>
+				<div class="time-and-date-wrapper">
+					<div class="time">4:04 PM</div>
+					<div class="date">5/29/2019</div>
+				</div>
+				<div class="copy-and-delete-wrapper">
+					<div class="copy"><input class="survey-icons" onclick="alert('copy')" type="image"
+							src="/img/clipboard.png"></div>
+					<div class="delete"><input class="survey-icons" onclick="alert('delete')" type="image"
+							src="/img/delete.png"></div>
+				</div>
 			</div>
+
 
 		</div>
 
@@ -55,6 +62,19 @@
 			</ul>
 		</div>
 
+	</div>
+
+	<div id="account-signin-signup" class="account-signin-signup">
+		Already have account?<br>
+		<a href="login.html#d"><button>Sign in</button></a> <br>
+		Create an account<br>
+		<a href="signup.html#d"><button>Sign Up</button></a>
+	</div>
+
+	<div id="popup-action-logout" class="popup-action-logout">
+		<button onclick="logoutYes()">Yes</button>
+
+		<button onclick="logoutNo()">No</button>
 	</div>
 
 
