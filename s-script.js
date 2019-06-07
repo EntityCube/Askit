@@ -1,21 +1,20 @@
-answers = []
-
+answers = [];
 // Linking
-Btn_Next = document.getElementById("next-button")
-Label_Question = document.getElementsByClassName("survey-question")[0]
-Label_Question_num = document.getElementById("survey-question-number")
-Input_Answer = document.getElementsByClassName("answer-input")[0]
-Box_Answer = document.getElementById("answer-box")
-Box_Answer_Background = document.getElementById("pop-up-container")
-Btn_Submit = document.getElementById("answer-submit-button")
-Input_Attended_User_Name = document.getElementById("answering-user-name-input")
-popupActionLogout = document.getElementById("popup-action-logout")
+Btn_Next = document.getElementById("next-button");
+Label_Question = document.getElementsByClassName("survey-question")[0];
+Label_Question_num = document.getElementById("survey-question-number");
+Input_Answer = document.getElementsByClassName("answer-input")[0];
+Box_Answer = document.getElementById("answer-box");
+Box_Answer_Background = document.getElementById("pop-up-container");
+Btn_Submit = document.getElementById("answer-submit-button");
+Input_Attended_User_Name = document.getElementById("answering-user-name-input");
+popupActionLogout = document.getElementById("popup-action-logout");
 
-Btn_Submit.disabled = true;
+Btn_Next.disabled = true;
 
 // Adding Event listeners
-Btn_Next.addEventListener("click", LoadNextQuestion)
-Btn_Submit.addEventListener("click", SubmitAnswers)
+Btn_Next.addEventListener("click", LoadNextQuestion);
+Btn_Submit.addEventListener("click", SubmitAnswers);
 
 // Execute a function when the user releases a key on the keyboard
 Input_Answer.addEventListener("keyup", function (event) {
@@ -33,23 +32,22 @@ Input_Answer.addEventListener("keyup", function (event) {
 Btn_Next.disabled = true;
 
 function LoadNextQuestion() {
+
     if (data.length != answers.length) {
         if (Input_Answer.value == false) {
-            Input_Answer.focus()
+            Input_Answer.focus();
         } else if (Input_Answer.value.length > 101) {
-            alert("character limit exceeded (max 100 characters)")
+            alert("character limit exceeded (max 100 characters)");
         } else {
-            answers.push(Input_Answer.value)
+            answers.push(Input_Answer.value);
 
-            Input_Answer.blur()
+            Input_Answer.value = "";
 
 
 
             if (data.length == answers.length) {
-                Box_Answer_Background.style.display = "block"
-                Box_Answer.style.display = "block"
-                Input_Answer.disabled = "true"
-
+                Box_Answer_Background.style.display = "block";
+                Box_Answer.style.display = "block";
 
 
                 var divsToHide = document.getElementsByClassName("step");
@@ -59,9 +57,8 @@ function LoadNextQuestion() {
                 }
 
             } else {
-                Input_Answer.focus()
-                Label_Question_num.innerHTML = "Question " + (answers.length + 1)
-                Label_Question.innerHTML = data[answers.length]
+                Label_Question_num.innerHTML = "Question " + (answers.length + 1);
+                Label_Question.innerHTML = data[answers.length];
             }
 
         }
@@ -69,32 +66,31 @@ function LoadNextQuestion() {
 }
 
 function SubmitAnswers() {
-    alert("type your name")
+    alert("hello")
     // Need to upload answers to database
     if (acname == "") {
         if (Input_Attended_User_Name.value != false) {
-            SendAnswersToDB(Input_Attended_User_Name.value, answers)
+            SendAnswersToDB(Input_Attended_User_Name.value, answers);
         } else {
-            alert("type your name")
+            alert("type your name");
         }
     } else {
-        alert("type your name")
-        SendAnswersToDB(acname, answers)
+        SendAnswersToDB(acname, answers);
     }
 
 }
 
 function logout() {
-    popupActionLogout.style.display = "block"
+    popupActionLogout.style.display = "block";
 }
 
 function logoutNo() {
-    popupActionLogout.style.display = "none"
+    popupActionLogout.style.display = "none";
 }
 
 function logoutYes() {
-    actionLogout = true
-    firebase.auth().signOut()
-    popupActionLogout.style.display = "none"
-    window.location.href = "/"
+    actionLogout = true;
+    firebase.auth().signOut();
+    popupActionLogout.style.display = "none";
+    window.location.href = "/";
 }

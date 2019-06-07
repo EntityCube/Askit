@@ -1,10 +1,10 @@
-dbDataLocation = "demo"
-acname = ""
-checkUser = true
+dbDataLocation = "demo";
+acname = "";
+checkUser = true;
 
-dbDataLocation = window.location.hash.substring(1)
+dbDataLocation = window.location.hash.substring(1);
 
-data = []
+data = [];
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: "AIzaSyCNchpc1VOQO9RRuY_LRvb-eCbzK6Uva7E",
@@ -32,26 +32,26 @@ dataRef.on('value', function () {
 }) 
 */
 dataRef.on('value', snap => {
-  data = snap.val()
+  data = snap.val();
   if (data == null) {
-    alert("you are trying to find a survey that has been removed")
-    return
+    alert("you are trying to find a survey that has been removed");
+    return;
   }
-  Label_Question.innerHTML = data[0]
+  Label_Question.innerHTML = data[0];
   Btn_Next.disabled = false;
-})
+});
 
 const creatorRef = firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child('creator');
-creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val())
+creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML = snap.val());
 
 
 function SendAnswersToDB(username, result) {
 
-  alert("hello")
+  alert("hello");
 
-  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).set(username)
-  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("answers").set(result)
-  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("time").set(Date())
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).set(username);
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("answers").set(result);
+  firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("time").set(Date());
 
   if (acname != "") {
     firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("account").set("true", function (error) {
@@ -59,10 +59,10 @@ function SendAnswersToDB(username, result) {
         console.log("Data could not be saved." + error);
       } else {
         setTimeout(function () {
-          window.location.href = "/"
-        }, 500)
+          window.location.href = "/";
+        }, 500);
       }
-    })
+    });
 
 
   } else {
@@ -71,61 +71,61 @@ function SendAnswersToDB(username, result) {
         console.log("Data could not be saved." + error);
       } else {
         setTimeout(function () {
-          window.location.href = "/"
-        }, 500)
+          window.location.href = "/";
+        }, 500);
       }
-    })
+    });
   }
 
-  hideAll()
-  Label_Question_num.innerHTML = "Submitted"
+  hideAll();
+  Label_Question_num.innerHTML = "Submitted";
 
 }
 
 function hideAll() {
 
-  Btn_Next.style.display = "none"
-  Label_Question.style.display = "none"
-  Input_Answer.style.display = "none"
-  Box_Answer.style.display = "none"
-  Btn_Submit.style.display = "none"
-  Input_Attended_User_Name.style.display = "none"
+  Btn_Next.style.display = "none";
+  Label_Question.style.display = "none";
+  Input_Answer.style.display = "none";
+  Box_Answer.style.display = "none";
+  Btn_Submit.style.display = "none";
+  Input_Attended_User_Name.style.display = "none";
 }
 
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
   if (firebaseUser) {
     firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
-      acname = snap.val()[0]
+      acname = snap.val()[0];
 
       firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(acname).child("account").on('value', snap => {
         if (snap.val() == "true" && checkUser == true) {
-          alert("you have already attempted this survey")
-          Btn_Next.disabled = true
-          Input_Answer.disabled = true
+          alert("you have already attempted this survey");
+          Btn_Next.disabled = true;
+          Input_Answer.disabled = true;
 
         } else {
-          checkUser = false
+          checkUser = false;
         }
-      })
+      });
 
-    })
+    });
 
 
 
 
     document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html"><button>Results</button></a>
-        <button class="btn-outline" onclick="logout()">Logout</button>`
+        <button class="btn-outline" onclick="logout()">Logout</button>`;
 
-    document.getElementById("answering-user-name-input").style.display = "none"
-    document.getElementById("answer-submit-button").style.marginTop = "0px"
+    document.getElementById("answering-user-name-input").style.display = "none";
+    document.getElementById("answer-submit-button").style.marginTop = "0px";
 
   } else {
-    console.log('not logged in')
-    Btn_Next.disabled = true
-    Input_Answer.disabled = true
-    alert("no account")
+    console.log('not logged in');
+    Btn_Next.disabled = true;
+    Input_Answer.disabled = true;
+    alert("no account");
     document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
-        <a href="login.html"><button class="btn-outline">Sign In</button></a>`
+        <a href="login.html"><button class="btn-outline">Sign In</button></a>`;
   }
-})
+});
