@@ -79,7 +79,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                     });
                     list.innerHTML += `<div class="surveys-listing">
                     <div class="survey-topic">
-                        <a href="https://askit.netlify.com/results# ` + key + `">
+                        <a href="https://askit.netlify.com/results#` + key + `">
                             <h2 class="survey-topic-text">` + data[key][1] + `</h2>
                         </a>
                     </div>
