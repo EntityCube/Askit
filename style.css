@@ -494,7 +494,7 @@ input[type=password]:focus {
 	background: #ffffff;
 	box-shadow: -12px 12px 2px 1px rgba(15, 8, 8, 0.2);
 	display: inline-block;
-	margin: 0;
+	margin: 6px;
 	padding: 0px;
 	color: rgb(34, 32, 32);
 	width: 200px;
