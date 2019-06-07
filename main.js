@@ -33,6 +33,10 @@ if (getCookie('data') != "") {
 
 }
 
+
+popupActionLogout = document.getElementById("popup-action-logout")
+
+
 function closeLastResultsPopupBox() {
     document.getElementById("Last_Results_Popup_Box").style.display = "none"
 }
@@ -69,6 +73,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 })
 
 function logout() {
-    console.log("logged out")
+    popupActionLogout.style.display = "block"
+}
+
+function logoutNo() {
+    popupActionLogout.style.display = "none"
+}
+
+function logoutYes() {
     firebase.auth().signOut()
+    popupActionLogout.style.display = "none"
 }

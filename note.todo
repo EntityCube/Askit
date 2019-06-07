@@ -1,0 +1,11 @@
+tasks
+☐ add popup window for actions
+☐ browser notification
+☐ input verification and error notifying in account login and create page
+☐ add .html to links 
+
+bugs
+☐ copying in ios safari browser
+
+performance
+☐ cache login

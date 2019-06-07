@@ -13,11 +13,23 @@
 	box-sizing: border-box;
 	list-style: none;
 	text-decoration: none;
+
+
 }
 
 *:focus {
 	outline: none;
 	border: none;
+}
+
+button:focus {
+	font-size: 0.8em;
+
+}
+
+input[type=text]:focus {
+	font-size: 0.9em;
+
 }
 
 h2 {
@@ -280,6 +292,30 @@ input[type=password]:focus {
 	margin: 5px auto 10px auto;
 }
 
+.popup-action-logout {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 5px;
+	margin: 0px;
+	border-radius: 0.5em;
+	text-align: center;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #030200e3;
+
+	display: none;
+
+}
+
+.popup-action-logout button {
+	padding-right: 50px;
+	padding-left: 50px;
+	margin: 5px;
+}
+
 /*-----about-----*/
 
 .about {
@@ -388,6 +424,31 @@ input[type=password]:focus {
 	box-shadow: 30px 30px 0px 200vh #000003f3;
 
 	display: none;
+}
+
+
+.copy-notify {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 5px;
+	margin: 0px;
+	border-radius: 0.5em;
+	text-align: center;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #030200e3;
+	display: none;
+	font-size: 0.5em;
+
+}
+
+/* Error Styling */
+
+.error {
+	color: #fffc48;
 }
 
 

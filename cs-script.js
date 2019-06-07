@@ -11,6 +11,8 @@ Label_Heading = document.getElementById("heading")
 Btn_Show_Results = document.getElementById("ShowResultsBtn")
 Btn_Copy_Link = document.getElementById("CopyBtn")
 accountSigninSignup = document.getElementById("account-signin-signup")
+copyNotify = document.getElementById("copy-notify")
+popupActionLogout = document.getElementById("popup-action-logout")
 
 Btn_Submit.disabled = true
 //Adding Event listener (Add Question, Submit, Create Survey)
@@ -19,8 +21,21 @@ Btn_Create_Survey.addEventListener("click", CreateSurvey)
 Btn_Add_Question.addEventListener("click", AddQuestion)
 Btn_Copy_Link.addEventListener("click", CopyToClipboard)
 
+// Execute a function when the user releases a key on the keyboard
+Input_Question.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        Btn_Add_Question.click();
+    }
+});
+
+
 // Variables
 Questions = []
+let actionLogout = false
 
 //////Cookies
 
@@ -65,7 +80,7 @@ function closeLastResultsPopupBox() {
 }
 
 function openLastResults() {
-    window.location.href = window.location.href = "/results.html#" + cookie_Data
+    window.location.href = "/results.html#" + cookie_Data
 }
 
 // OpenResultsPopupBox
@@ -74,26 +89,28 @@ function closeLastResultsPopupBox() {
 }
 
 function openLastResults() {
-    window.location.href = window.location.href = "/results.html#" + cookie_Data
+    window.location.href = "/results.html#" + cookie_Data
 }
 
 
 // Functions for buttons
 function AddQuestion() {
     if (Input_Question.value == false) {
-        alert("Type a question.")
+        Input_Question.focus();
     } else if (Input_Question.value.length > 201) {
         alert("Question shouldn't exeed 200 characters.")
     } else {
         Questions.push(Input_Question.value)
         Input_Question.value = ""
         Number_Question.innerHTML = "Question " + (Questions.length + 1)
+        Input_Question.focus()
     }
 }
 
 function Submit() {
+
     if (Questions.length == false) {
-        alert("Add atleast one question before submitting.")
+        Btn_Add_Question.focus()
     } else {
         Box_Submit.style.display = "block"
         Box_Submit_Container.style.display = "block"
@@ -108,9 +125,10 @@ function Submit() {
     }
 }
 
+
 function CreateSurvey() {
     if (Input_Survey_Topic.value == false) {
-        alert("please add your name")
+        alert("please add topic")
     } else {
         // upload all questions to db with topic as reference
         storeQuestions(Questions)
@@ -128,7 +146,10 @@ function CopyToClipboard() {
     el.select();
     document.execCommand('copy')
     document.body.removeChild(el);
-    alert("copied")
+    copyNotify.style.display = "block"
+    setTimeout(function () {
+        copyNotify.style.display = "none"
+    }, 800);
 
 
 }
@@ -178,7 +199,10 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
     } else {
 
-        accountSigninSignup.style.display = "block"
+        if (actionLogout == false) {
+            accountSigninSignup.style.display = "block"
+        }
+
         document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`
         Btn_Add_Question.disabled = "true"
@@ -190,6 +214,16 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 })
 
 function logout() {
+    popupActionLogout.style.display = "block"
+}
+
+function logoutNo() {
+    popupActionLogout.style.display = "none"
+}
+
+function logoutYes() {
+    actionLogout = true
     firebase.auth().signOut()
-    window.location.href = window.location.href = "/"
+    popupActionLogout.style.display = "none"
+    window.location.href = "/"
 }

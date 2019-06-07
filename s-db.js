@@ -46,6 +46,9 @@ creatorRef.on('value', snap => document.getElementById("creator_name").innerHTML
 
 
 function SendAnswersToDB(username, result) {
+
+  alert("hello")
+
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).set(username)
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("answers").set(result)
   firebase.database().ref().child("PublicSurveys").child(dbDataLocation).child("Results").child(username).child("time").set(Date())
@@ -100,6 +103,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
           alert("you have already attempted this survey")
           Btn_Next.disabled = true
           Input_Answer.disabled = true
+
         } else {
           checkUser = false
         }
@@ -125,9 +129,3 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         <a href="login.html"><button class="btn-outline">Sign In</button></a>`
   }
 })
-
-function logout() {
-  console.log("logged out")
-  firebase.auth().signOut()
-  acname = ""
-}
