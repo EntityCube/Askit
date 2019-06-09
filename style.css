@@ -616,7 +616,7 @@ input[type=password]:focus {
 	padding: 10px;
 	border-radius: 10px;
 	hyphens: auto;
-	font-size: 0.9em;
+	font-size: 1.3em;
 	justify-content: center;
 
 }
