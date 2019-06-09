@@ -573,6 +573,57 @@ input[type=password]:focus {
 	padding: 20px;
 }
 
+.popup-action-delete {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 5px;
+	margin: 0px;
+	border-radius: 0.5em;
+	text-align: center;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #000000d3;
+	font-size: 0.6em;
+	display: none;
+}
+
+.popup-action-copy {
+	color: white;
+	background: linear-gradient(45deg, rgb(233, 39, 39), rgb(255, 0, 85));
+	padding: 15px;
+	margin: 0px;
+	border-radius: 0.5em;
+	text-align: center;
+	position: fixed;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 70%;
+	transform: translate(-50%, -50%);
+	box-shadow: 30px 30px 0px 200vh #000000d3;
+	font-size: 0.8em;
+	display: none;
+}
+
+.popup-action-copy-link {
+	color: #ffffff;
+	width: 100%;
+	max-width: 500px;
+	margin: auto;
+	margin-bottom: 10px;
+	display: flex;
+	background: rgba(0, 0, 0, 0.2);
+	padding: 10px;
+	border-radius: 10px;
+	hyphens: auto;
+	font-size: 0.9em;
+	justify-content: center;
+
+}
+
 /*-----result page-----*/
 
 .result {

@@ -16,6 +16,8 @@ firebase.initializeApp(firebaseConfig);
 list = document.getElementById("surveys-listing-container");
 accountSigninSignup = document.getElementById("account-signin-signup");
 popupActionLogout = document.getElementById("popup-action-logout");
+popupActionDelete = document.getElementById("popup-action-delete")
+popupActionCopy = document.getElementById("popup-action-copy")
 
 let actionLogout = false;
 
@@ -36,6 +38,7 @@ function CopyToClipboard(value) {
 function deleteSurvey(value) {
     firebase.database().ref().child("PublicSurveys").child(value).set(null)
     firebase.database().ref().child("Users").child(userId).child("surveys").child(value).set(null)
+    hideActionDeleteSurvey();
 }
 
 
@@ -88,9 +91,9 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
                         <div class="date">` + day + `</div>
                     </div>
                     <div class="copy-and-delete-wrapper">
-                        <div class="copy"><input class="survey-icons"  onclick="CopyToClipboard('` + key + `')"  type="image"
+                        <div class="copy"><input class="survey-icons"  onclick="actionCopyToClipboard('` + key + `')"  type="image"
                                 src="/img/clipboard.png"></div>
-                        <div class="delete"><input class="survey-icons"  onclick="deleteSurvey('` + key + `')"  type="image"
+                        <div class="delete"><input class="survey-icons"  onclick="actionDeleteSurvey('` + key + `','` + data[key][1] + `')"  type="image"
                                 src="/img/delete.png"></div>
                     </div>
                     </div>`
@@ -126,4 +129,39 @@ function logoutYes() {
     firebase.auth().signOut();
     popupActionLogout.style.display = "none";
     window.location.href = "/";
+}
+
+function actionDeleteSurvey(value, topic) {
+    popupActionDelete.innerHTML = `
+    
+    <h1>Delete survey "` + topic + `" ?</h1> 
+    <button onclick="deleteSurvey('` + value + `')"> yes </button>
+    <button onclick="hideActionDeleteSurvey()">no</button>`;
+
+    popupActionDelete.style.display = "block";
+
+}
+
+function hideActionDeleteSurvey() {
+    popupActionDelete.style.display = "none";
+}
+
+function actionCopyToClipboard(value) {
+    popupActionCopy.style.display = "block";
+
+    popupActionCopy.innerHTML = `      
+    
+    <h2 class="popup-action-copy-link"><a href="https://askit.netlify.com/survey.html#` + value + `" target="_blank"> https://askit.netlify.com/survey.html#` + value + `</a></h2>
+  
+    <button onclick="hideActionCopyToClipboard()">Close</button>
+  
+    <button onclick="CopyToClipboard('` + value + `')">Copy Link</button>    
+    
+    `
+
+}
+
+function hideActionCopyToClipboard() {
+    popupActionCopy.style.display = "none";
+
 }
