@@ -36,8 +36,9 @@ function validateEmail(email) {
 function verifyInput() {
     if (txtname.value == "") {
         alert("empty name")
-    } else
-    if (txtEmail.value == "") {
+    } else if (txtname.value.length < 6) {
+        alert("minimum 5 length for name")
+    } else if (txtEmail.value == "") {
         alert("empty email")
     } else if (!validateEmail(txtEmail.value)) {
         alert("invalid gmail")
