@@ -36,8 +36,8 @@ function validateEmail(email) {
 function verifyInput() {
     if (txtname.value == "") {
         alert("empty name")
-    } else if (txtname.value.length < 6) {
-        alert("minimum 5 length for name")
+    } else if (txtname.value.length < 4) {
+        alert("minimum 4 length for name")
     } else if (txtEmail.value == "") {
         alert("empty email")
     } else if (!validateEmail(txtEmail.value)) {
@@ -74,28 +74,45 @@ btnSignUp.addEventListener('click', e => {
 
 firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
-        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").set([txtname.value, firebaseUser.email, txtPassword.value], function (error) {
-            if (error) {
-                console.log("Data could not be saved." + error);
-            } else {
-                if (window.location.hash.substring(1) == "cs") {
-                    window.location.href = window.location.href = "/create-survey.html"
 
+
+
+
+        firebase.database().ref().child("UsersNames").push(txtname.value,
+            function (error) {
+                if (error) {
+                    console.log("Data could not be saved." + error);
                 } else
-                if (window.location.hash[1] == "-") {
 
-                    window.location.href = "/survey.html#" + window.location.hash.substring(1)
+                {
+                    firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").set([txtname.value, firebaseUser.email, txtPassword.value], function (error) {
+                        if (error) {
+                            console.log("Data could not be saved." + error);
+                        } else {
+                            if (window.location.hash.substring(1) == "cs") {
+                                window.location.href = window.location.href = "/create-survey.html"
 
+                            } else
+                            if (window.location.hash[1] == "-") {
+
+                                window.location.href = "/survey.html#" + window.location.hash.substring(1)
+
+                            }
+                            if (window.location.hash[1] == "d") {
+
+                                window.location.href = "/dashboard.html#" + window.location.hash.substring(1)
+
+                            } else {
+                                window.location.href = window.location.href = "/"
+                            }
+                        }
+                    })
                 }
-                if (window.location.hash[1] == "d") {
 
-                    window.location.href = "/dashboard.html#" + window.location.hash.substring(1)
 
-                } else {
-                    window.location.href = window.location.href = "/"
-                }
-            }
-        })
+
+
+            })
     } else {
         console.log('not logged in')
     }
