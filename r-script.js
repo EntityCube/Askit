@@ -1,5 +1,6 @@
 QStack = document.getElementById("result")
 NameMension = document.getElementById("NameMention")
+popupActionLogout = document.getElementById("popup-action-logout");
 
 
 Questions = ["fav color?", "fav car?", "fav city?"]
@@ -189,19 +190,21 @@ function MensionNames() {
 
     for (property in AttendedUsers) {
 
-        red = getRandomInteger(80, 250)
-        green = getRandomInteger(0, 200)
-        blue = getRandomInteger(50, 250)
-        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.5)"
+        // red = getRandomInteger(10, 200)
+        // green = getRandomInteger(30, 40)
+        // blue = getRandomInteger(10, 50)
 
-        red2 = red + 50
-        if (red2 > 255) {
-            red2 -= getRandomInteger(10, 50) + 50
-        }
-        green2 = green
-        blue2 = blue
-        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.5)"
 
+        red2 = 185
+        green2 = 185
+        blue2 = 185
+        red = red2
+        green = green2
+        blue = blue2
+
+
+        bgColor2 = "rgba(" + red2 + "," + green2 + "," + blue2 + ",0.3)"
+        bgColor = "rgba(" + red + "," + green + "," + blue + ",0.3)"
 
 
         AbgColor[j] = bgColor
@@ -248,4 +251,52 @@ function getCookie(c_name) {
         }
     }
     return "";
+}
+
+
+
+
+
+
+firebase.auth().onAuthStateChanged(firebaseUser => {
+    if (firebaseUser) {
+        document.getElementById("accountButtons").innerHTML = `<a href="dashboard.html" style="visibility:hidden"><button>Results</button></a>
+        <button class="btn-outline" onclick="logout()">Logout</button>`
+        firebase.database().ref().child("Users").child(firebaseUser.uid).child("Credentials").on('value', snap => {
+            console.log(snap.val())
+            username = snap.val()[0]
+            console.log("enabled")
+        })
+
+        userid = firebaseUser.uid
+
+    } else {
+
+        if (actionLogout == false) {
+            accountSigninSignup.style.display = "block"
+        }
+
+        document.getElementById("accountButtons").innerHTML = `<a href="signup.html"><button>Sign Up</button></a>
+        <a href="login.html"><button class="btn-outline">Sign In</button></a>`
+        Btn_Add_Question.disabled = "true"
+        Btn_Submit.disabled = "true"
+        Input_Question.disabled = "true"
+
+
+    }
+})
+
+function logout() {
+    popupActionLogout.style.display = "block";
+}
+
+function logoutNo() {
+    popupActionLogout.style.display = "none";
+}
+
+function logoutYes() {
+    actionLogout = true;
+    firebase.auth().signOut();
+    popupActionLogout.style.display = "none";
+    window.location.href = "/";
 }

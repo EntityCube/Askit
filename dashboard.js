@@ -16,8 +16,9 @@ firebase.initializeApp(firebaseConfig);
 list = document.getElementById("surveys-listing-container");
 accountSigninSignup = document.getElementById("account-signin-signup");
 popupActionLogout = document.getElementById("popup-action-logout");
-popupActionDelete = document.getElementById("popup-action-delete")
-popupActionCopy = document.getElementById("popup-action-copy")
+popupActionDelete = document.getElementById("popup-action-delete");
+popupActionCopy = document.getElementById("popup-action-copy");
+copyNotify = document.getElementById("copy-notify");
 
 let actionLogout = false;
 
@@ -32,6 +33,11 @@ function CopyToClipboard(value) {
     el.select();
     document.execCommand('copy');
     document.body.removeChild(el);
+
+    copyNotify.style.display = "block"
+    setTimeout(function () {
+        copyNotify.style.display = "none"
+    }, 800);
 
 }
 

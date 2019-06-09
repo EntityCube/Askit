@@ -606,6 +606,7 @@ input[type=password]:focus {
 	box-shadow: 30px 30px 0px 200vh #000000d3;
 	font-size: 0.8em;
 	display: none;
+
 }
 
 .popup-action-copy-link {

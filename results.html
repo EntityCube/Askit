@@ -16,9 +16,7 @@
 
 			<a class="logo" href="index.html">AskIt</a>
 
-			<div class="nav">
-				<a href="signup.html"><button>Sign Up</button></a>
-				<a href="login.html"><button class="btn-outline">Sign In</button></a>
+			<div class="nav" id="accountButtons">
 			</div>
 
 		</div>
@@ -35,6 +33,13 @@
 			<a class="footer-logo logo" href="index.html">AskIt</a>
 		</div>
 
+
+		<div id="popup-action-logout" class="popup-action-logout">
+			<button onclick="logoutYes()">Yes</button>
+
+			<button onclick="logoutNo()">No</button>
+		</div>
+
 		<div class="footer-items">
 			<ul>
 				<li><a href="terms-and-conditions">Terms and Conditions</a></li>
@@ -48,7 +53,8 @@
 
 </body>
 
-<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"></script>
+<script src=" https://www.gstatic.com/firebasejs/5.11.1/firebase-app.js"> </script>
+<script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.11.1/firebase-database.js"></script>
 <script src="r-script.js"></script>
 
