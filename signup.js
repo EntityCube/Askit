@@ -11,6 +11,30 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+let UsersNames = []
+
+function snapshotToArray(snapshot) {
+    var returnArr = [];
+
+    snapshot.forEach(function (childSnapshot) {
+        var item = childSnapshot.val();
+        item.key = childSnapshot.key;
+
+        returnArr.push(item);
+    });
+
+
+    UsersNames = returnArr
+    // return returnArr;
+    return true
+};
+
+firebase.database().ref('UsersNames').on('value', function (snapshot) {
+    console.log(snapshotToArray(snapshot));
+});
+
+
+
 
 
 
@@ -38,6 +62,8 @@ function verifyInput() {
         alert("empty name")
     } else if (txtname.value.length < 4) {
         alert("minimum 4 length for name")
+    } else if (UsersNames.includes(txtname.value)) {
+        alert("name already exists")
     } else if (txtEmail.value == "") {
         alert("empty email")
     } else if (!validateEmail(txtEmail.value)) {
