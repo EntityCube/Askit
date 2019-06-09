@@ -65,7 +65,7 @@ btnSignUp.addEventListener('click', e => {
         const auth = firebase.auth();
 
         const promise = auth.createUserWithEmailAndPassword(email, pass);
-        promise.catch(e => console.log(e.message))
+        promise.catch(e => alert(e.message))
 
     }
 
