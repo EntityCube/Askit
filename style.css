@@ -22,10 +22,6 @@
 	border: none;
 }
 
-button:focus {
-	font-size: 0.8em;
-
-}
 
 input[type=text]:focus {
 	font-size: 0.9em;
