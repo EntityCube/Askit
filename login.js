@@ -31,16 +31,19 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
     if (firebaseUser) {
         if (window.location.hash.substring(1) == "cs") {
 
+            alert("cs")
             // window.location.href = "/create-survey.html"
 
         } else
         if (window.location.hash[1] == "-") {
 
+            alert("-")
             //window.location.href = "/survey.html#" + window.location.hash.substring(1)
 
         }
         if (window.location.hash[1] == "d") {
 
+            alert("d")
             // window.location.href = "/dashboard.html#"
 
         } else
