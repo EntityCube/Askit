@@ -47,7 +47,8 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
 
         {
             alert("no match")
-            window.location.href = "/"
+            alert(window.location.hash.substring(1))
+            //window.location.href = "/"
         }
     } else {
         console.log('not logged in')
