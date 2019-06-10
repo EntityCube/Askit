@@ -22,6 +22,10 @@
 	border: none;
 }
 
+.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
 
 
 h2 {
@@ -704,6 +708,17 @@ input[type=password]:focus {
 	vertical-align: middle;
 	margin-right: 20px;
 }
+
+
+/*-----Password Reset------*/
+
+
+
+
+
+
+
+
 
 /*-----responsive------*/
 
