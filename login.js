@@ -41,11 +41,12 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         }
         if (window.location.hash[1] == "d") {
 
-            window.location.href = "/dashboard.html#" + window.location.hash.substring(1)
+            window.location.href = "/dashboard.html#"
 
         } else
 
         {
+            alert("no match")
             window.location.href = "/"
         }
     } else {
