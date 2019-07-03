@@ -17,6 +17,10 @@
 
 }
 
+body,html {
+	height: calc(100% - 40px);
+}
+
 *:focus {
 	outline: none;
 	border: none;
@@ -265,6 +269,7 @@ input[type=password]:focus {
 	background: linear-gradient(30deg, var(--pink), var(--orange));
 	text-align: center;
 	padding-bottom: 30px;
+	min-height: 100%;
 }
 
 .top-container p {
@@ -758,6 +763,7 @@ input[type=password]:focus {
 
 	.footer {
 		display: block;
+	
 	}
 
 	.footer-logo {
@@ -766,3 +772,6 @@ input[type=password]:focus {
 		text-align: center;
 	}
 }
+
+
+
